@@ -21,6 +21,9 @@
 		3CE2741422C9F87400E9C496 /* TBBriefIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2741322C9F87400E9C496 /* TBBriefIntroductionView.m */; };
 		3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2741622CA039E00E9C496 /* TBToolBoxsViewModel.m */; };
 		3CE2741A22CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2741922CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m */; };
+		3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2741C22CB321800E9C496 /* TBSexSelectButton.m */; };
+		3CE2742022CB32C000E9C496 /* TBBirthdaySelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2741F22CB32C000E9C496 /* TBBirthdaySelectButton.m */; };
+		3CE2742322CB594F00E9C496 /* TBLoverCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2742222CB594F00E9C496 /* TBLoverCodeModel.m */; };
 		8E5D38AD19C2999E2B75F1EC /* libPods-ToolBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4D1A52CABF0A79531D125D /* libPods-ToolBox.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,12 @@
 		3CE2741622CA039E00E9C496 /* TBToolBoxsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBToolBoxsViewModel.m; sourceTree = "<group>"; };
 		3CE2741822CA048C00E9C496 /* TBToolBoxsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBToolBoxsCollectionViewCell.h; sourceTree = "<group>"; };
 		3CE2741922CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBToolBoxsCollectionViewCell.m; sourceTree = "<group>"; };
+		3CE2741B22CB321800E9C496 /* TBSexSelectButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBSexSelectButton.h; sourceTree = "<group>"; };
+		3CE2741C22CB321800E9C496 /* TBSexSelectButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBSexSelectButton.m; sourceTree = "<group>"; };
+		3CE2741E22CB32C000E9C496 /* TBBirthdaySelectButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBBirthdaySelectButton.h; sourceTree = "<group>"; };
+		3CE2741F22CB32C000E9C496 /* TBBirthdaySelectButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBBirthdaySelectButton.m; sourceTree = "<group>"; };
+		3CE2742122CB594F00E9C496 /* TBLoverCodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLoverCodeModel.h; sourceTree = "<group>"; };
+		3CE2742222CB594F00E9C496 /* TBLoverCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLoverCodeModel.m; sourceTree = "<group>"; };
 		4A758942E9D0DBA58C2FF8C3 /* Pods-ToolBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToolBox/Pods-ToolBox.release.xcconfig"; sourceTree = "<group>"; };
 		B269C2C1105BB6958D387820 /* Pods-ToolBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToolBox/Pods-ToolBox.debug.xcconfig"; sourceTree = "<group>"; };
 		FF4D1A52CABF0A79531D125D /* libPods-ToolBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ToolBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +220,8 @@
 		3CE2740222C4BAF300E9C496 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3CE2742122CB594F00E9C496 /* TBLoverCodeModel.h */,
+				3CE2742222CB594F00E9C496 /* TBLoverCodeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +235,10 @@
 				3CE2741322C9F87400E9C496 /* TBBriefIntroductionView.m */,
 				3CE2741822CA048C00E9C496 /* TBToolBoxsCollectionViewCell.h */,
 				3CE2741922CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m */,
+				3CE2741B22CB321800E9C496 /* TBSexSelectButton.h */,
+				3CE2741C22CB321800E9C496 /* TBSexSelectButton.m */,
+				3CE2741E22CB32C000E9C496 /* TBBirthdaySelectButton.h */,
+				3CE2741F22CB32C000E9C496 /* TBBirthdaySelectButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,11 +447,14 @@
 				3CE2741122C9EF3E00E9C496 /* TBToolBoxsViewController.m in Sources */,
 				3CE2740B22C9D39000E9C496 /* TBLoverCodeViewModel.m in Sources */,
 				3CE273DB22C4A0B300E9C496 /* main.m in Sources */,
+				3CE2742322CB594F00E9C496 /* TBLoverCodeModel.m in Sources */,
 				3CE2741A22CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m in Sources */,
 				3CE2740722C5E83900E9C496 /* TBLoverCodeViewController.m in Sources */,
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
+				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
 				3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */,
+				3CE2742022CB32C000E9C496 /* TBBirthdaySelectButton.m in Sources */,
 				3CE2741422C9F87400E9C496 /* TBBriefIntroductionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

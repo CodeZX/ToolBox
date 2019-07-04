@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
      self.toolBoxsVM = [[TBToolBoxsViewModel alloc]initWithTarget:self];
 }
 

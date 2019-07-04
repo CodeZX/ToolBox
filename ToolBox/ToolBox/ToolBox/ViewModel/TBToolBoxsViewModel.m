@@ -24,7 +24,7 @@ static NSString * const identifier = @"loverCode";
         [self setupTarget:target];
         [self setupComponent];
         [self setupSourceData];
-        
+
     }
     return self;
 }
