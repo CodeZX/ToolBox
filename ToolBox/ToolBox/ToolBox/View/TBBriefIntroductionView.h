@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TBBriefIntroductionView : UIView
 
+
+- (instancetype)initWithContentString:(NSString *)content;
 @end
 
 NS_ASSUME_NONNULL_END

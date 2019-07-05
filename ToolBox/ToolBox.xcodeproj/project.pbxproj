@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85522CF416C00590932 /* TBZodiacCardViewController.m */; };
+		3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */; };
+		3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -45,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C29A85422CF416C00590932 /* TBZodiacCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardViewController.h; sourceTree = "<group>"; };
+		3C29A85522CF416C00590932 /* TBZodiacCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardViewController.m; sourceTree = "<group>"; };
+		3C29A85722CF41A100590932 /* TBZodiacCardViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardViewModel.h; sourceTree = "<group>"; };
+		3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardViewModel.m; sourceTree = "<group>"; };
+		3C29A85A22CF511F00590932 /* TBZodiacCardCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardCollectionViewCell.h; sourceTree = "<group>"; };
+		3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardCollectionViewCell.m; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -202,6 +211,8 @@
 				3CE2741622CA039E00E9C496 /* TBToolBoxsViewModel.m */,
 				3CE2740922C9D39000E9C496 /* TBLoverCodeViewModel.h */,
 				3CE2740A22C9D39000E9C496 /* TBLoverCodeViewModel.m */,
+				3C29A85722CF41A100590932 /* TBZodiacCardViewModel.h */,
+				3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -213,6 +224,8 @@
 				3CE2741022C9EF3E00E9C496 /* TBToolBoxsViewController.m */,
 				3CE2740522C5E83900E9C496 /* TBLoverCodeViewController.h */,
 				3CE2740622C5E83900E9C496 /* TBLoverCodeViewController.m */,
+				3C29A85422CF416C00590932 /* TBZodiacCardViewController.h */,
+				3C29A85522CF416C00590932 /* TBZodiacCardViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +252,8 @@
 				3CE2741C22CB321800E9C496 /* TBSexSelectButton.m */,
 				3CE2741E22CB32C000E9C496 /* TBBirthdaySelectButton.h */,
 				3CE2741F22CB32C000E9C496 /* TBBirthdaySelectButton.m */,
+				3C29A85A22CF511F00590932 /* TBZodiacCardCollectionViewCell.h */,
+				3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,9 +465,12 @@
 				3CE2742322CB594F00E9C496 /* TBLoverCodeModel.m in Sources */,
 				3CE2741A22CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m in Sources */,
 				3CE2740722C5E83900E9C496 /* TBLoverCodeViewController.m in Sources */,
+				3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */,
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
 				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
+				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
+				3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */,
 				3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */,
 				3CE2742022CB32C000E9C496 /* TBBirthdaySelectButton.m in Sources */,
 				3CE2741422C9F87400E9C496 /* TBBriefIntroductionView.m in Sources */,

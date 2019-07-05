@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TBLoverCodeViewModel : NSObject
 
 - (instancetype)initWithTarget:(UIViewController *)target;
-//- (NSString *)stringForIdentifier;
+
 @end
 
 NS_ASSUME_NONNULL_END

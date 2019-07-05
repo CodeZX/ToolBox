@@ -10,6 +10,7 @@
 #import "TBToolBoxsViewModel.h"
 #import "TBToolBoxsCollectionViewCell.h"
 #import "TBLoverCodeViewController.h"
+#import "TBZodiacCardViewController.h"
 
 @interface TBToolBoxsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) TBToolBoxsViewModel *toolBoxsVM;
@@ -41,6 +42,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[[TBLoverCodeViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[TBZodiacCardViewController alloc]init] animated:YES];
 }
 @end

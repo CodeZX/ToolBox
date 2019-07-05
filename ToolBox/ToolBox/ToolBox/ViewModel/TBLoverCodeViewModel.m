@@ -14,7 +14,7 @@
 #import "TBLoverCodeModel.h"
 @interface TBLoverCodeViewModel ()<UITextFieldDelegate>
 
-@property (nonatomic,strong) UIViewController  *target;
+@property (nonatomic,weak) UIViewController  *target;
 @property (nonatomic,weak) TBBriefIntroductionView *briefIntroductionView;
 @property (nonatomic,weak) UIImageView *sloganImageView;
 @property (nonatomic,weak) UILabel *sloganTitleLabel;
@@ -30,6 +30,8 @@
 
 @property (nonatomic,strong) TBLoverCodeModel *loverCodeModel;
 @property (nonatomic,strong) UIDatePicker *datePicker;
+@property (nonatomic,strong) UITextField *focusedTextField;
+
 
 @end
 
@@ -60,7 +62,7 @@ static NSString * const identifier = @"loverCode";
 
 - (void)setupComponent {
     
-    TBBriefIntroductionView *briefIntroductionView = [[TBBriefIntroductionView alloc]init];
+    TBBriefIntroductionView *briefIntroductionView = [[TBBriefIntroductionView alloc]initWithContentString:@"请输入您和他/她的生日。计算本期特码，赶紧来试试!"];
     [self.target.view addSubview:briefIntroductionView];
     self.briefIntroductionView = briefIntroductionView;
     [self.briefIntroductionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,10 +103,10 @@ static NSString * const identifier = @"loverCode";
     }];
     
     TBSexSelectButton *manSexSelectButton = [[TBSexSelectButton alloc]init];
-    manSexSelectButton.backgroundColor = [UIColor redColor];
+//    manSexSelectButton.backgroundColor = [UIColor redColor];
     [manSexSelectButton setTitle:@"男" forState:UIControlStateNormal];
     [manSexSelectButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [manSexSelectButton addTarget:self action:@selector(sexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [manSexSelectButton addTarget:self action:@selector(manSexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:manSexSelectButton];
     self.manSexSelectButton = manSexSelectButton;
     [self.manSexSelectButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,7 +118,7 @@ static NSString * const identifier = @"loverCode";
     TBSexSelectButton *womanSexSelectButton = [[TBSexSelectButton alloc]init];
     [womanSexSelectButton setTitle:@"女" forState:UIControlStateNormal];
     [womanSexSelectButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [womanSexSelectButton addTarget:self action:@selector(sexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [womanSexSelectButton addTarget:self action:@selector(womanSexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.target.view addSubview:womanSexSelectButton];
     self.womanSexSelectButton = womanSexSelectButton;
@@ -138,6 +140,7 @@ static NSString * const identifier = @"loverCode";
     
     UITextField *oneSelfBirthdaySelectTextField = [[UITextField alloc]init];
     oneSelfBirthdaySelectTextField.placeholder = @"请选择你的生日";
+    oneSelfBirthdaySelectTextField.tag = 101;
     oneSelfBirthdaySelectTextField.inputView = self.datePicker;
     oneSelfBirthdaySelectTextField.delegate = self;
     [self.target.view addSubview:oneSelfBirthdaySelectTextField];
@@ -164,6 +167,7 @@ static NSString * const identifier = @"loverCode";
   
     UITextField *fereBirthdaySelectTextField = [[UITextField alloc]init];
     fereBirthdaySelectTextField.placeholder = @"请选择恋人生日";
+    fereBirthdaySelectTextField.tag = 102;
     fereBirthdaySelectTextField.inputView = self.datePicker;
     fereBirthdaySelectTextField.delegate = self;
     [self.target.view addSubview:fereBirthdaySelectTextField];
@@ -204,10 +208,10 @@ static NSString * const identifier = @"loverCode";
 - (void)setupAssociate {
 
    
-    [self.manSexSelectButton addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
-    [self.womanSexSelectButton addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
-    [self.oneSelfBirthdaySelectTextField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
-    [self.fereBirthdaySelectTextField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.manSexSelectButton addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.womanSexSelectButton addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.oneSelfBirthdaySelectTextField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.fereBirthdaySelectTextField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
    
    
     
@@ -240,9 +244,30 @@ static NSString * const identifier = @"loverCode";
 
 #pragma mark public
 #pragma mark respond
-- (void)sexButtonClicked:(TBSexSelectButton *)sexSelectButton {
+- (void)manSexButtonClicked:(TBSexSelectButton *)manSexSelectButton {
     
-    sexSelectButton.selected = !sexSelectButton;
+    self.womanSexSelectButton.selected = NO;
+    self.manSexSelectButton.selected = !manSexSelectButton;
+    if (self.manSexSelectButton.selected) {
+        self.loverCodeModel.sex = @"男";
+    }else {
+        self.loverCodeModel.sex = @"";
+    }
+    
+}
+
+- (void)womanSexButtonClicked:(TBSexSelectButton *)womanSexSelectButton {
+    
+    self.manSexSelectButton.selected = NO;
+    self.womanSexSelectButton.selected = womanSexSelectButton.selected;
+    if (self.womanSexSelectButton.selected) {
+        self.loverCodeModel.sex = @"女";
+    }else {
+        self.loverCodeModel.sex = @"";
+    }
+    
+    
+    
     
 }
 
@@ -254,15 +279,24 @@ static NSString * const identifier = @"loverCode";
     return NO;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.focusedTextField = textField;
+}
+
 - (void)dateChange:(UIDatePicker *)datePicker {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
     //设置时间格式
     formatter.dateFormat = @"yyyy/MM/dd";
     NSString *dateStr = [formatter  stringFromDate:datePicker.date];
+    self.focusedTextField.text = dateStr;
+    if (self.focusedTextField.tag == 101) {
+        self.loverCodeModel.oneSelfBirthday = self.focusedTextField.text;
+    }else if (self.focusedTextField.tag == 102) {
+        self.loverCodeModel.fereSelfBirthday = self.focusedTextField.text;
+    }
     
-    self.oneSelfBirthdaySelectTextField.text = dateStr;
+   
 }
 #pragma mark ----------------------------------- Network -------------------------------------------
 #pragma mark --------------------------------- Lazy loading ----------------------------------------
