@@ -10,8 +10,7 @@
 #import "TBZodiacCardViewModel.h"
 #import "TBZodiacCardCollectionViewCell.h"
 
-@interface TBZodiacCardViewController ()<UICollectionViewDelegate,UICollectionViewDataSource
->
+@interface TBZodiacCardViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) TBZodiacCardViewModel *zodiacCardVM;
 @end
 
@@ -30,15 +29,22 @@
     
     
     TBZodiacCardCollectionViewCell *cell = [TBZodiacCardCollectionViewCell cellWithCollectionView:collectionView Identifier:[self.zodiacCardVM stringForIdentifier] forIndexPath:indexPath];
+    cell.zodiacCardModel = [self.zodiacCardVM zodiaccardModelForItemAtIndexPath:indexPath];
     return cell;
     
     
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    return [self.zodiacCardVM numberOfItemsInSection:section];
 }
 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    [self.zodiacCardVM selectItemAtindexPath:indexPath];
+}
 
 
 @end

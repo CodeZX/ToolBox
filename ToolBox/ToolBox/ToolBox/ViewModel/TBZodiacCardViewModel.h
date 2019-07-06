@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
+NS_ASSUME_NONNULL_BEGIN
+@class TBZodiacCardModel;
 @interface TBZodiacCardViewModel : NSObject
-- (instancetype)initWithTarget:(UIViewController<UICollectionViewDelegate,UICollectionViewDataSource
-                                > *)target;
+- (instancetype)initWithTarget:(UIViewController<UICollectionViewDelegate,UICollectionViewDataSource> *)target;
+- (NSInteger)numberOfItemsInSection:(NSInteger)section;
+- (TBZodiacCardModel *)zodiaccardModelForItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
+- (void)selectItemAtindexPath:(NSIndexPath *)indexPath;
 - (NSString *)stringForIdentifier;
 @end
 

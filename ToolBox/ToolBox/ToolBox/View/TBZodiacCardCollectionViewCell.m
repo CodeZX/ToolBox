@@ -7,7 +7,7 @@
 //
 
 #import "TBZodiacCardCollectionViewCell.h"
-
+#import "TBZodiacCardModel.h"
 
 @interface TBZodiacCardCollectionViewCell   ()
 
@@ -32,7 +32,7 @@
 - (void)setupUI {
     
 //    self.contentView.backgroundColor = [UIColor redColor];
-    UIImageView *cardImageView = [[UIImageView alloc]init];
+    UIImageView *cardImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ico_card_1"]];
     cardImageView.backgroundColor = [UIColor blueColor];
     [self.contentView addSubview:cardImageView];
     self.cardImageView = cardImageView;
@@ -41,5 +41,23 @@
     }];
     
     
+    
+    
+}
+
+- (void)setZodiacCardModel:(TBZodiacCardModel *)zodiacCardModel {
+
+    _zodiacCardModel = zodiacCardModel;
+//    self.cardImageView.image = [UIImage imageNamed:zodiacCardModel.picturePath];
+
+}
+
+
+- (void)startRotationAnimation:(void (^)(BOOL))completion {
+    [UIView transitionWithView:self.cardImageView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.cardImageView.image = [UIImage imageNamed:self.zodiacCardModel.picturePath];
+    } completion:^(BOOL finished) {
+        completion(finished);
+    }];
 }
 @end

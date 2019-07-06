@@ -10,6 +10,24 @@
 		3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85522CF416C00590932 /* TBZodiacCardViewController.m */; };
 		3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */; };
 		3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */; };
+		3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85E22D0897100590932 /* TBZodiacCardModel.m */; };
+		3C29A87322D0912A00590932 /* ico_card_dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86222D0912900590932 /* ico_card_dragon.png */; };
+		3C29A87422D0912A00590932 /* ico_card_chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86322D0912900590932 /* ico_card_chicken.png */; };
+		3C29A87522D0912A00590932 /* ico_card_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86422D0912900590932 /* ico_card_3.png */; };
+		3C29A87622D0912A00590932 /* ico_card_mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86522D0912900590932 /* ico_card_mouse.png */; };
+		3C29A87722D0912A00590932 /* ico_card_pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86622D0912900590932 /* ico_card_pig.png */; };
+		3C29A87822D0912A00590932 /* ico_card_rabbit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86722D0912900590932 /* ico_card_rabbit.png */; };
+		3C29A87922D0912A00590932 /* ico_card_tiger.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86822D0912900590932 /* ico_card_tiger.png */; };
+		3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86922D0912900590932 /* ico_card_1.png */; };
+		3C29A87B22D0912A00590932 /* ico_card_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86A22D0912900590932 /* ico_card_5.png */; };
+		3C29A87C22D0912A00590932 /* ico_card_sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86B22D0912900590932 /* ico_card_sheep.png */; };
+		3C29A87D22D0912A00590932 /* ico_card_monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86C22D0912900590932 /* ico_card_monkey.png */; };
+		3C29A87E22D0912A00590932 /* ico_card_snake.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86D22D0912900590932 /* ico_card_snake.png */; };
+		3C29A87F22D0912A00590932 /* ico_card_horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86E22D0912900590932 /* ico_card_horse.png */; };
+		3C29A88022D0912A00590932 /* ico_card_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86F22D0912900590932 /* ico_card_4.png */; };
+		3C29A88122D0912A00590932 /* ico_card_cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87022D0912900590932 /* ico_card_cow.png */; };
+		3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87122D0912900590932 /* ico_card_dog.png */; };
+		3C29A88322D0912A00590932 /* ico_card_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87222D0912A00590932 /* ico_card_2.png */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -54,6 +72,25 @@
 		3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardViewModel.m; sourceTree = "<group>"; };
 		3C29A85A22CF511F00590932 /* TBZodiacCardCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardCollectionViewCell.h; sourceTree = "<group>"; };
 		3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardCollectionViewCell.m; sourceTree = "<group>"; };
+		3C29A85D22D0897100590932 /* TBZodiacCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardModel.h; sourceTree = "<group>"; };
+		3C29A85E22D0897100590932 /* TBZodiacCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardModel.m; sourceTree = "<group>"; };
+		3C29A86222D0912900590932 /* ico_card_dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_dragon.png; sourceTree = "<group>"; };
+		3C29A86322D0912900590932 /* ico_card_chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_chicken.png; sourceTree = "<group>"; };
+		3C29A86422D0912900590932 /* ico_card_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_3.png; sourceTree = "<group>"; };
+		3C29A86522D0912900590932 /* ico_card_mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_mouse.png; sourceTree = "<group>"; };
+		3C29A86622D0912900590932 /* ico_card_pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_pig.png; sourceTree = "<group>"; };
+		3C29A86722D0912900590932 /* ico_card_rabbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_rabbit.png; sourceTree = "<group>"; };
+		3C29A86822D0912900590932 /* ico_card_tiger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_tiger.png; sourceTree = "<group>"; };
+		3C29A86922D0912900590932 /* ico_card_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_1.png; sourceTree = "<group>"; };
+		3C29A86A22D0912900590932 /* ico_card_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_5.png; sourceTree = "<group>"; };
+		3C29A86B22D0912900590932 /* ico_card_sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_sheep.png; sourceTree = "<group>"; };
+		3C29A86C22D0912900590932 /* ico_card_monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_monkey.png; sourceTree = "<group>"; };
+		3C29A86D22D0912900590932 /* ico_card_snake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_snake.png; sourceTree = "<group>"; };
+		3C29A86E22D0912900590932 /* ico_card_horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_horse.png; sourceTree = "<group>"; };
+		3C29A86F22D0912900590932 /* ico_card_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_4.png; sourceTree = "<group>"; };
+		3C29A87022D0912900590932 /* ico_card_cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_cow.png; sourceTree = "<group>"; };
+		3C29A87122D0912900590932 /* ico_card_dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_dog.png; sourceTree = "<group>"; };
+		3C29A87222D0912A00590932 /* ico_card_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_2.png; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +157,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C29A86022D0911800590932 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3C29A86122D0911800590932 /* Images */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3C29A86122D0911800590932 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3C29A86922D0912900590932 /* ico_card_1.png */,
+				3C29A87222D0912A00590932 /* ico_card_2.png */,
+				3C29A86422D0912900590932 /* ico_card_3.png */,
+				3C29A86F22D0912900590932 /* ico_card_4.png */,
+				3C29A86A22D0912900590932 /* ico_card_5.png */,
+				3C29A86322D0912900590932 /* ico_card_chicken.png */,
+				3C29A87022D0912900590932 /* ico_card_cow.png */,
+				3C29A87122D0912900590932 /* ico_card_dog.png */,
+				3C29A86222D0912900590932 /* ico_card_dragon.png */,
+				3C29A86E22D0912900590932 /* ico_card_horse.png */,
+				3C29A86C22D0912900590932 /* ico_card_monkey.png */,
+				3C29A86522D0912900590932 /* ico_card_mouse.png */,
+				3C29A86622D0912900590932 /* ico_card_pig.png */,
+				3C29A86722D0912900590932 /* ico_card_rabbit.png */,
+				3C29A86B22D0912900590932 /* ico_card_sheep.png */,
+				3C29A86D22D0912900590932 /* ico_card_snake.png */,
+				3C29A86822D0912900590932 /* ico_card_tiger.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		3CE273BF22C4A0B100E9C496 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +256,7 @@
 		3CE273FE22C4A6FB00E9C496 /* ToolBox */ = {
 			isa = PBXGroup;
 			children = (
+				3C29A86022D0911800590932 /* Resource */,
 				3CE2740122C4BAF300E9C496 /* Controller */,
 				3CE2740222C4BAF300E9C496 /* Model */,
 				3CE2740322C4BAF400E9C496 /* View */,
@@ -235,6 +305,8 @@
 			children = (
 				3CE2742122CB594F00E9C496 /* TBLoverCodeModel.h */,
 				3CE2742222CB594F00E9C496 /* TBLoverCodeModel.m */,
+				3C29A85D22D0897100590932 /* TBZodiacCardModel.h */,
+				3C29A85E22D0897100590932 /* TBZodiacCardModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,9 +459,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C29A87322D0912A00590932 /* ico_card_dragon.png in Resources */,
+				3C29A87622D0912A00590932 /* ico_card_mouse.png in Resources */,
+				3C29A88322D0912A00590932 /* ico_card_2.png in Resources */,
+				3C29A87522D0912A00590932 /* ico_card_3.png in Resources */,
+				3C29A88022D0912A00590932 /* ico_card_4.png in Resources */,
 				3CE273D822C4A0B300E9C496 /* LaunchScreen.storyboard in Resources */,
+				3C29A87822D0912A00590932 /* ico_card_rabbit.png in Resources */,
+				3C29A87B22D0912A00590932 /* ico_card_5.png in Resources */,
+				3C29A88122D0912A00590932 /* ico_card_cow.png in Resources */,
+				3C29A87922D0912A00590932 /* ico_card_tiger.png in Resources */,
 				3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */,
+				3C29A87E22D0912A00590932 /* ico_card_snake.png in Resources */,
+				3C29A87F22D0912A00590932 /* ico_card_horse.png in Resources */,
+				3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */,
+				3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */,
 				3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */,
+				3C29A87D22D0912A00590932 /* ico_card_monkey.png in Resources */,
+				3C29A87722D0912A00590932 /* ico_card_pig.png in Resources */,
+				3C29A87422D0912A00590932 /* ico_card_chicken.png in Resources */,
+				3C29A87C22D0912A00590932 /* ico_card_sheep.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +557,7 @@
 				3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */,
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
 				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
+				3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
 				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
 				3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */,
