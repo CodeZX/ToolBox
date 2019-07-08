@@ -8,6 +8,7 @@
 
 #import "TBZodiacCardCollectionViewCell.h"
 #import "TBZodiacCardModel.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface TBZodiacCardCollectionViewCell   ()
 
@@ -24,10 +25,21 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationAll) name:@"RotationAllNotification" object:nil];
         [self setupUI];
     }
     return self;
 }
+
+- (void)rotationAll {
+    
+    
+    [self startRotationAnimation:^(BOOL finished) {
+        
+    }];
+}
+
 
 - (void)setupUI {
     
@@ -55,6 +67,7 @@
 
 - (void)startRotationAnimation:(void (^)(BOOL))completion {
     [UIView transitionWithView:self.cardImageView duration:0.5f options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        AudioServicesPlaySystemSound(1008);
         self.cardImageView.image = [UIImage imageNamed:self.zodiacCardModel.picturePath];
     } completion:^(BOOL finished) {
         completion(finished);

@@ -10,6 +10,7 @@
 #import "TBBriefIntroductionView.h"
 #import "TBZodiacCardCollectionViewCell.h"
 #import "TBZodiacCardModel.h"
+//#import ""
 
 @interface TBZodiacCardViewModel   ()
 
@@ -19,6 +20,7 @@
 @property (nonatomic,strong) NSArray *zodiacCardModels;
 @property (nonatomic,strong) NSMutableArray *selectZodiacCardModels;
 @property (nonatomic,assign,getter=isSelectEnd) BOOL selectEnd;
+@property (nonatomic,weak) UILabel *promptLabel;
 @end
 
 static NSString * const identifier = @"zodiacCard";
@@ -76,6 +78,15 @@ static NSString * const identifier = @"zodiacCard";
         [collectionView registerClass:[TBZodiacCardCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     }
     
+    
+    UILabel *promptLabel = [[UILabel alloc]init];
+    promptLabel.text = @"小提示：每期只能进行一次幸运翻盘！";
+    [self.target.view addSubview:promptLabel];
+    self.promptLabel = promptLabel;
+    [self.promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.target.view).offset(-10);
+        make.centerX.equalTo(self.target.view);
+    }];
 }
 
 - (void)setupSourceData {
@@ -97,7 +108,6 @@ static NSString * const identifier = @"zodiacCard";
                           dragonZodiacCardModel,horseZodiacCardModel,monkeyZodiacCardModel,
                           mouseZodiacCardModel,pigZodiacCardModel,rabbitZodiacCardModel,
                           sheepZodiacCardModel,snakeZodiacCardModel,tigerZodiacCardModel];
-    
     
     
 }
@@ -132,9 +142,16 @@ static NSString * const identifier = @"zodiacCard";
             if (finished) {
                 if (self.selectZodiacCardModels.count == 3) {
                     self.selectEnd = YES;
-                    [NSThread sleepForTimeInterval:0.2];
+//                    [NSThread sleepForTimeInterval:0.2];
+                    [UIView transitionWithView:self.collectionView duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                        
+                    } completion:^(BOOL finished) {
+                       
+                        [self performSelector:@selector(sendRotationAllNotification) withObject:nil afterDelay:.6];
+                    }];
                     
-                    [self.collectionView reloadData];
+                     [self.collectionView reloadData];
+                   
                 }
             }
         }];
@@ -147,6 +164,11 @@ static NSString * const identifier = @"zodiacCard";
     
 }
 
+
+- (void)sendRotationAllNotification {
+    
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"RotationAllNotification" object:nil];
+}
 - (NSMutableArray *)selectZodiacCardModels
 {
     if (!_selectZodiacCardModels) {
