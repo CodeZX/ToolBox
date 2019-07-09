@@ -30,6 +30,7 @@
 		3C29A88322D0912A00590932 /* ico_card_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87222D0912A00590932 /* ico_card_2.png */; };
 		3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88522D32C0300590932 /* TBShakeViewController.m */; };
 		3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88822D32C1F00590932 /* TBShakeViewModel.m */; };
+		3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B622D4799600BABD80 /* TBShakeView.m */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -97,6 +98,8 @@
 		3C29A88522D32C0300590932 /* TBShakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeViewController.m; sourceTree = "<group>"; };
 		3C29A88722D32C1F00590932 /* TBShakeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeViewModel.h; sourceTree = "<group>"; };
 		3C29A88822D32C1F00590932 /* TBShakeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeViewModel.m; sourceTree = "<group>"; };
+		3CBCE8B522D4799600BABD80 /* TBShakeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeView.h; sourceTree = "<group>"; };
+		3CBCE8B622D4799600BABD80 /* TBShakeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeView.m; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 				3CE2741F22CB32C000E9C496 /* TBBirthdaySelectButton.m */,
 				3C29A85A22CF511F00590932 /* TBZodiacCardCollectionViewCell.h */,
 				3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */,
+				3CBCE8B522D4799600BABD80 /* TBShakeView.h */,
+				3CBCE8B622D4799600BABD80 /* TBShakeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CE2741122C9EF3E00E9C496 /* TBToolBoxsViewController.m in Sources */,
+				3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */,
 				3CE2740B22C9D39000E9C496 /* TBLoverCodeViewModel.m in Sources */,
 				3CE273DB22C4A0B300E9C496 /* main.m in Sources */,
 				3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */,

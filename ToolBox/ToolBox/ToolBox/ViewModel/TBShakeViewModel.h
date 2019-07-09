@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TBShakeViewModel : NSObject
 
 - (instancetype)initWithTarget:(UIViewController *)target;
+- (void)startShake;
+- (void)stopShake;
 @end
 
 NS_ASSUME_NONNULL_END
