@@ -78,8 +78,15 @@
     
 }
 
-- (void)startShake {
+
+
+- (void)startShake:(void (^)(BOOL))completion {
     
-    [self.shakeView startSharke];
+    [self.shakeView startSharke:completion];
+    
+}
+- (void)startForecast {
+    
+    [self.shakeView startForecastAnimation];
 }
 @end

@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TBShakeView : UIView
-- (void)startSharke;
+- (void)startSharke:(void (^)(BOOL finished))completion;
 - (void)stopSharke;
+- (void)startForecastAnimation;
 @end
 
 NS_ASSUME_NONNULL_END

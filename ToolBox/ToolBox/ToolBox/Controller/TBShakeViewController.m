@@ -12,6 +12,7 @@
 
 @interface TBShakeViewController ()
 @property (nonatomic,strong) TBShakeViewModel *shakeVM;
+@property (nonatomic,assign,getter=isShake) BOOL shake;
 @end
 
 @implementation TBShakeViewController
@@ -20,8 +21,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.shake = YES;
     self.shakeVM = [[TBShakeViewModel alloc]initWithTarget:self];
-    
     [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     [self becomeFirstResponder];
     
@@ -42,8 +43,18 @@
     {
         // your code
         NSLog(@"检测到摇动开始");
-        AudioServicesPlaySystemSound(1009);//振
-        [self.shakeVM startShake];
+
+        if (self.shake) {
+            [self.shakeVM startShake:^(BOOL finished) {
+                
+                if (finished) {
+                    __weak typeof(self) weakSelf = self;
+                    weakSelf.shake = NO;
+                }
+                
+            }];
+        }
+        
     }
 }
 
@@ -64,5 +75,10 @@
         
     }
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+//    [self.shakeVM startForecast];
 }
 @end
