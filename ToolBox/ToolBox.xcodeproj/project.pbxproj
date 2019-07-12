@@ -31,6 +31,8 @@
 		3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88522D32C0300590932 /* TBShakeViewController.m */; };
 		3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88822D32C1F00590932 /* TBShakeViewModel.m */; };
 		3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B622D4799600BABD80 /* TBShakeView.m */; };
+		3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */; };
+		3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -100,6 +102,10 @@
 		3C29A88822D32C1F00590932 /* TBShakeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeViewModel.m; sourceTree = "<group>"; };
 		3CBCE8B522D4799600BABD80 /* TBShakeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeView.h; sourceTree = "<group>"; };
 		3CBCE8B622D4799600BABD80 /* TBShakeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeView.m; sourceTree = "<group>"; };
+		3CBCE8B822D85D2100BABD80 /* TBKitBagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBKitBagViewController.h; sourceTree = "<group>"; };
+		3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBKitBagViewController.m; sourceTree = "<group>"; };
+		3CBCE8BB22D85D4000BABD80 /* TBKitBagViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBKitBagViewModel.h; sourceTree = "<group>"; };
+		3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBKitBagViewModel.m; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -294,6 +300,8 @@
 				3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */,
 				3C29A88722D32C1F00590932 /* TBShakeViewModel.h */,
 				3C29A88822D32C1F00590932 /* TBShakeViewModel.m */,
+				3CBCE8BB22D85D4000BABD80 /* TBKitBagViewModel.h */,
+				3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -309,6 +317,8 @@
 				3C29A85522CF416C00590932 /* TBZodiacCardViewController.m */,
 				3C29A88422D32C0300590932 /* TBShakeViewController.h */,
 				3C29A88522D32C0300590932 /* TBShakeViewController.m */,
+				3CBCE8B822D85D2100BABD80 /* TBKitBagViewController.h */,
+				3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -572,7 +582,9 @@
 				3CE2741A22CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m in Sources */,
 				3CE2740722C5E83900E9C496 /* TBLoverCodeViewController.m in Sources */,
 				3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */,
+				3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */,
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
+				3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */,
 				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
 				3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */,
 				3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */,
