@@ -33,6 +33,9 @@
 		3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B622D4799600BABD80 /* TBShakeView.m */; };
 		3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */; };
 		3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */; };
+		3CBCE8C022DC559F00BABD80 /* TBLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BF22DC559F00BABD80 /* TBLotteryViewController.m */; };
+		3CBCE8C322DC55B400BABD80 /* TBLotteryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */; };
+		3CBCE8C622DC587800BABD80 /* TBLuckNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -106,6 +109,12 @@
 		3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBKitBagViewController.m; sourceTree = "<group>"; };
 		3CBCE8BB22D85D4000BABD80 /* TBKitBagViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBKitBagViewModel.h; sourceTree = "<group>"; };
 		3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBKitBagViewModel.m; sourceTree = "<group>"; };
+		3CBCE8BE22DC559F00BABD80 /* TBLotteryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLotteryViewController.h; sourceTree = "<group>"; };
+		3CBCE8BF22DC559F00BABD80 /* TBLotteryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLotteryViewController.m; sourceTree = "<group>"; };
+		3CBCE8C122DC55B400BABD80 /* TBLotteryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLotteryViewModel.h; sourceTree = "<group>"; };
+		3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLotteryViewModel.m; sourceTree = "<group>"; };
+		3CBCE8C422DC587800BABD80 /* TBLuckNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLuckNumberView.h; sourceTree = "<group>"; };
+		3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLuckNumberView.m; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -302,6 +311,8 @@
 				3C29A88822D32C1F00590932 /* TBShakeViewModel.m */,
 				3CBCE8BB22D85D4000BABD80 /* TBKitBagViewModel.h */,
 				3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */,
+				3CBCE8C122DC55B400BABD80 /* TBLotteryViewModel.h */,
+				3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,6 +330,8 @@
 				3C29A88522D32C0300590932 /* TBShakeViewController.m */,
 				3CBCE8B822D85D2100BABD80 /* TBKitBagViewController.h */,
 				3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */,
+				3CBCE8BE22DC559F00BABD80 /* TBLotteryViewController.h */,
+				3CBCE8BF22DC559F00BABD80 /* TBLotteryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,6 +364,8 @@
 				3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */,
 				3CBCE8B522D4799600BABD80 /* TBShakeView.h */,
 				3CBCE8B622D4799600BABD80 /* TBShakeView.m */,
+				3CBCE8C422DC587800BABD80 /* TBLuckNumberView.h */,
+				3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +591,7 @@
 				3CE2741122C9EF3E00E9C496 /* TBToolBoxsViewController.m in Sources */,
 				3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */,
 				3CE2740B22C9D39000E9C496 /* TBLoverCodeViewModel.m in Sources */,
+				3CBCE8C322DC55B400BABD80 /* TBLotteryViewModel.m in Sources */,
 				3CE273DB22C4A0B300E9C496 /* main.m in Sources */,
 				3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */,
 				3CE2742322CB594F00E9C496 /* TBLoverCodeModel.m in Sources */,
@@ -591,8 +607,10 @@
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
 				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
 				3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */,
+				3CBCE8C022DC559F00BABD80 /* TBLotteryViewController.m in Sources */,
 				3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */,
 				3CE2742022CB32C000E9C496 /* TBBirthdaySelectButton.m in Sources */,
+				3CBCE8C622DC587800BABD80 /* TBLuckNumberView.m in Sources */,
 				3CE2741422C9F87400E9C496 /* TBBriefIntroductionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

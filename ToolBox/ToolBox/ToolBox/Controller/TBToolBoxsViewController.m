@@ -13,6 +13,7 @@
 #import "TBZodiacCardViewController.h"
 #import "TBShakeViewController.h"
 #import "TBKitBagViewController.h"
+#import "TBLotteryViewController.h"
 
 @interface TBToolBoxsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) TBToolBoxsViewModel *toolBoxsVM;
@@ -44,6 +45,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[[TBKitBagViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[TBLotteryViewController alloc]init] animated:YES];
 }
 @end
