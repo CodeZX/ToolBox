@@ -36,6 +36,9 @@
 		3CBCE8C022DC559F00BABD80 /* TBLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BF22DC559F00BABD80 /* TBLotteryViewController.m */; };
 		3CBCE8C322DC55B400BABD80 /* TBLotteryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */; };
 		3CBCE8C622DC587800BABD80 /* TBLuckNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */; };
+		3CBCE8C922DEF56D00BABD80 /* TBTurntableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8C822DEF56D00BABD80 /* TBTurntableViewController.m */; };
+		3CBCE8CC22DEF58C00BABD80 /* TBTurntableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8CB22DEF58C00BABD80 /* TBTurntableViewModel.m */; };
+		3CBCE8CF22DEF82000BABD80 /* TBTurntableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8CE22DEF82000BABD80 /* TBTurntableView.m */; };
 		3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE273CC22C4A0B100E9C496 /* AppDelegate.m */; };
 		3CE273D322C4A0B100E9C496 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D122C4A0B100E9C496 /* Main.storyboard */; };
 		3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE273D422C4A0B300E9C496 /* Assets.xcassets */; };
@@ -115,6 +118,12 @@
 		3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLotteryViewModel.m; sourceTree = "<group>"; };
 		3CBCE8C422DC587800BABD80 /* TBLuckNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLuckNumberView.h; sourceTree = "<group>"; };
 		3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBLuckNumberView.m; sourceTree = "<group>"; };
+		3CBCE8C722DEF56D00BABD80 /* TBTurntableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBTurntableViewController.h; sourceTree = "<group>"; };
+		3CBCE8C822DEF56D00BABD80 /* TBTurntableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBTurntableViewController.m; sourceTree = "<group>"; };
+		3CBCE8CA22DEF58C00BABD80 /* TBTurntableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBTurntableViewModel.h; sourceTree = "<group>"; };
+		3CBCE8CB22DEF58C00BABD80 /* TBTurntableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBTurntableViewModel.m; sourceTree = "<group>"; };
+		3CBCE8CD22DEF82000BABD80 /* TBTurntableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBTurntableView.h; sourceTree = "<group>"; };
+		3CBCE8CE22DEF82000BABD80 /* TBTurntableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBTurntableView.m; sourceTree = "<group>"; };
 		3CE273C822C4A0B100E9C496 /* ToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE273CB22C4A0B100E9C496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CE273CC22C4A0B100E9C496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -313,6 +322,8 @@
 				3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */,
 				3CBCE8C122DC55B400BABD80 /* TBLotteryViewModel.h */,
 				3CBCE8C222DC55B400BABD80 /* TBLotteryViewModel.m */,
+				3CBCE8CA22DEF58C00BABD80 /* TBTurntableViewModel.h */,
+				3CBCE8CB22DEF58C00BABD80 /* TBTurntableViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -332,6 +343,8 @@
 				3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */,
 				3CBCE8BE22DC559F00BABD80 /* TBLotteryViewController.h */,
 				3CBCE8BF22DC559F00BABD80 /* TBLotteryViewController.m */,
+				3CBCE8C722DEF56D00BABD80 /* TBTurntableViewController.h */,
+				3CBCE8C822DEF56D00BABD80 /* TBTurntableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -366,6 +379,8 @@
 				3CBCE8B622D4799600BABD80 /* TBShakeView.m */,
 				3CBCE8C422DC587800BABD80 /* TBLuckNumberView.h */,
 				3CBCE8C522DC587800BABD80 /* TBLuckNumberView.m */,
+				3CBCE8CD22DEF82000BABD80 /* TBTurntableView.h */,
+				3CBCE8CE22DEF82000BABD80 /* TBTurntableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBCE8C922DEF56D00BABD80 /* TBTurntableViewController.m in Sources */,
 				3CE2741122C9EF3E00E9C496 /* TBToolBoxsViewController.m in Sources */,
 				3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */,
 				3CE2740B22C9D39000E9C496 /* TBLoverCodeViewModel.m in Sources */,
@@ -601,10 +617,12 @@
 				3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */,
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
 				3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */,
+				3CBCE8CF22DEF82000BABD80 /* TBTurntableView.m in Sources */,
 				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
 				3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */,
 				3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
+				3CBCE8CC22DEF58C00BABD80 /* TBTurntableViewModel.m in Sources */,
 				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
 				3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */,
 				3CBCE8C022DC559F00BABD80 /* TBLotteryViewController.m in Sources */,

@@ -9,13 +9,15 @@
 #import "TBLuckNumberView.h"
 
 
-@interface TBLuckNumberView ()
+@interface TBLuckNumberView ()<CAAnimationDelegate>
 
 
 @property (nonatomic,weak) UIImageView *backgroundImageView;
 @property (nonatomic,weak) UILabel *titleLabel;
 @property (nonatomic,weak) UIImageView *plusImageView;
 @property (nonatomic,strong) NSMutableArray *numberBallArray;
+@property (nonatomic,copy)  void (^completion)(BOOL finished);
+
 @end
 @implementation TBLuckNumberView
 
@@ -144,7 +146,7 @@
 
 - (void)startLottery:(void (^)(BOOL))completion {
     
-    
+    self.completion = completion;
     
     for (int index = 0; index < self.numberBallArray.count; index++) {
         [self setNumberBallAnimation:self.numberBallArray[index] delay:index/1.0];
@@ -161,6 +163,7 @@
     moveAnimation.keyPath = @"position.x";
     moveAnimation.fromValue = @(-10);
     moveAnimation.toValue = @(numberBall.layer.position.x);
+    moveAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
     
     CABasicAnimation *showAnimation = [[CABasicAnimation alloc]init];
@@ -177,10 +180,11 @@
     
     CAAnimationGroup *group = [[CAAnimationGroup alloc]init];
     group.animations = @[moveAnimation,showAnimation,scaleAnimation];
-    group.duration =  0.4;
-    group.beginTime = CACurrentMediaTime() + delay/9;
+    group.duration =  1.5;
+    group.beginTime = CACurrentMediaTime() + delay/6;
     group.fillMode = kCAFillModeForwards;
     group.removedOnCompletion = NO;
+    group.delegate = self;
     [numberBall.layer addAnimation:group forKey:@"show"];
     
 }
@@ -192,5 +196,15 @@
     }
     
     return _numberBallArray;
+}
+
+- (void)animationDidStart:(CAAnimation *)anim {
+    
+    
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
+    self.completion(YES);
 }
 @end
