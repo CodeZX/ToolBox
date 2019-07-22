@@ -14,7 +14,8 @@
 #import "TBShakeViewController.h"
 #import "TBKitBagViewController.h"
 #import "TBLotteryViewController.h"
-#import "TBTurntableViewController.H"
+#import "TBTurntableViewController.h"
+#import "TBLotteryDateViewController.h"
 
 @interface TBToolBoxsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,strong) TBToolBoxsViewModel *toolBoxsVM;
@@ -46,6 +47,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[[TBTurntableViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[TBLotteryDateViewController alloc]init] animated:YES];
 }
 @end
