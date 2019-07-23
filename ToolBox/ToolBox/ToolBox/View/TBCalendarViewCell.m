@@ -66,6 +66,7 @@ static NSString * const identifier = @"calenderViewCell";
     
     
     UIImageView *selectImageView = [[UIImageView alloc]init];
+    selectImageView.alpha = 0;
     selectImageView.backgroundColor  =  [UIColor yellowColor];
     [self.contentView addSubview:selectImageView];
     self.selectImageView = selectImageView;
@@ -76,6 +77,7 @@ static NSString * const identifier = @"calenderViewCell";
     
     
     UIImageView *currentDateImageView = [[UIImageView alloc]init];
+    currentDateImageView.alpha = 0;
     currentDateImageView.backgroundColor  =  [UIColor blueColor];
     [self.contentView addSubview:currentDateImageView];
     self.currentDateImageView = currentDateImageView;
@@ -83,6 +85,15 @@ static NSString * const identifier = @"calenderViewCell";
         make.center.equalTo(self.contentView);
         make.size.equalTo(self.contentView).sizeOffset(CGSizeMake(-5, -5));
     }];
+    
+    
+}
+
+- (void)setDateModel:(TBDateModel *)dateModel {
+    
+    _dateModel = dateModel;
+    
+    self.dateLabel.text = dateModel.dateString;
     
     
 }
