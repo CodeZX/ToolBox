@@ -34,9 +34,10 @@
 - (void)setupUI {
     
     
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.borderWidth = 1;
-    UIImageView *backgroundImageView  = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+
+    UIImage *image = [UIImage imageNamed:@"bg_history_top.9"];
+    UIImage *i = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height/2, image.size.width/2, image.size.height/2, image.size.width/2) resizingMode:UIImageResizingModeStretch];
+    UIImageView *backgroundImageView  = [[UIImageView alloc]initWithImage:i];
     [self addSubview:backgroundImageView];
     self.backgroundImageView = backgroundImageView;
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,20 +49,21 @@
     [self addSubview:titleLabel];
     self.titleLabel = titleLabel;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(10);
+        make.top.equalTo(20);
+        make.left.equalTo(35);
+        
     }];
     
     UILabel *contentLabel = [[UILabel alloc]init];
     contentLabel.numberOfLines = 0;
     contentLabel.text = self.contentsString;
-//    contentLabel.text = @"请输入您和他/她的生日。计算本期特码，赶紧来试试！";
     contentLabel.font = [UIFont systemFontOfSize:13];
     [self addSubview:contentLabel];
     self.contentLabel = contentLabel;
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.bottom).offset(5);
-        make.left.equalTo(10);
-        make.right.equalTo(-10);
+        make.top.equalTo(self.titleLabel.bottom);
+        make.left.equalTo(self.titleLabel);
+        make.right.equalTo(-20);
     }];
     
 

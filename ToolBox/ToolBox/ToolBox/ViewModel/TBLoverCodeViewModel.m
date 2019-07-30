@@ -12,6 +12,7 @@
 #import "TBSexSelectButton.h"
 #import "TBBirthdaySelectButton.h"
 #import "TBLoverCodeModel.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface TBLoverCodeViewModel ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UIViewController  *target;
@@ -71,21 +72,26 @@ static NSString * const identifier = @"loverCode";
         make.height.equalTo(100);
     }];
     
-    UIImageView *sloganImageView = [[UIImageView alloc]init];
-    sloganImageView.backgroundColor = [UIColor redColor];
+    UIImageView *sloganImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tool_lover_bg"]];
+    NSArray *jbImageNames = @[[UIImage imageNamed:@"jb1"],[UIImage imageNamed:@"jb2"],[UIImage imageNamed:@"jb3"],[UIImage imageNamed:@"jb4"],[UIImage imageNamed:@"jb5"],[UIImage imageNamed:@"jb6"],[UIImage imageNamed:@"jb7"]];
+    [sloganImageView setAnimationImages:jbImageNames];
+    [sloganImageView setAnimationDuration:1];
+    [sloganImageView setAnimationRepeatCount:3];
+    sloganImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.target.view addSubview:sloganImageView];
     self.sloganImageView = sloganImageView;
     [self.sloganImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.briefIntroductionView.bottom).offset(10);
         make.centerX.equalTo(self.target.view);
-        make.left.equalTo(self.target.view.left).offset(20);
-        make.right.equalTo(self.target.view.right).offset(-20);
-        make.height.equalTo(100);
+        make.left.equalTo(self.target.view.left).offset(100);
+        make.right.equalTo(self.target.view.right).offset(-100);
+        make.height.equalTo(44);
     }];
     
 
     UILabel *sloganTitleLabel = [[UILabel alloc]init];
     sloganTitleLabel.text = @"来测试一下你们的恋人号码吧！";
+    sloganTitleLabel.font = [UIFont systemFontOfSize:18];
     [self.target.view addSubview:sloganTitleLabel];
     self.sloganTitleLabel = sloganTitleLabel;
     [self.sloganTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,28 +104,31 @@ static NSString * const identifier = @"loverCode";
     [self.target.view addSubview:sexSelectLabel];
     self.sexSelectLabel =  sexSelectLabel;
     [self.sexSelectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.sloganTitleLabel.bottom).offset(10);
+        make.top.equalTo(self.sloganTitleLabel.bottom).offset(30);
         make.right.equalTo(self.target.view.centerX);
     }];
     
     TBSexSelectButton *manSexSelectButton = [[TBSexSelectButton alloc]init];
-//    manSexSelectButton.backgroundColor = [UIColor redColor];
+    [manSexSelectButton setImage:[UIImage imageNamed:@"btn_tool_lover_man_nopress"] forState:UIControlStateNormal];
+    [manSexSelectButton setImage:[UIImage imageNamed:@"btn_tool_lover_man_press"] forState:UIControlStateSelected];
     [manSexSelectButton setTitle:@"男" forState:UIControlStateNormal];
-    [manSexSelectButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    manSexSelectButton.selected = YES;
+    [manSexSelectButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    manSexSelectButton.contentMode = UIViewContentModeTopLeft;
     [manSexSelectButton addTarget:self action:@selector(manSexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:manSexSelectButton];
     self.manSexSelectButton = manSexSelectButton;
     [self.manSexSelectButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.sexSelectLabel);
         make.left.equalTo(self.sexSelectLabel.right).offset(10);
-        
     }];
     
     TBSexSelectButton *womanSexSelectButton = [[TBSexSelectButton alloc]init];
+    [womanSexSelectButton setImage:[UIImage imageNamed:@"btn_tool_lover_woman_nopress"] forState:UIControlStateNormal];
+    [womanSexSelectButton setImage:[UIImage imageNamed:@"btn_tool_lover_woman_press"] forState:UIControlStateSelected];
     [womanSexSelectButton setTitle:@"女" forState:UIControlStateNormal];
     [womanSexSelectButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [womanSexSelectButton addTarget:self action:@selector(womanSexButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
     [self.target.view addSubview:womanSexSelectButton];
     self.womanSexSelectButton = womanSexSelectButton;
     [self.womanSexSelectButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -132,17 +141,21 @@ static NSString * const identifier = @"loverCode";
     [self.target.view addSubview:oneSelfbBirthdaySelectLabel];
     self.oneSelfbBirthdaySelectLabel = oneSelfbBirthdaySelectLabel;
     [self.oneSelfbBirthdaySelectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.sexSelectLabel.bottom).offset(10);
+        make.top.equalTo(self.sexSelectLabel.bottom).offset(15);
         make.left.equalTo(self.sexSelectLabel);
         
     }];
     
     
     UITextField *oneSelfBirthdaySelectTextField = [[UITextField alloc]init];
-    oneSelfBirthdaySelectTextField.placeholder = @"请选择你的生日";
+    oneSelfBirthdaySelectTextField.placeholder = @"     请选择你的生日     ";
     oneSelfBirthdaySelectTextField.tag = 101;
     oneSelfBirthdaySelectTextField.inputView = self.datePicker;
     oneSelfBirthdaySelectTextField.delegate = self;
+    oneSelfBirthdaySelectTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    oneSelfBirthdaySelectTextField.layer.borderWidth = .5f;
+    oneSelfBirthdaySelectTextField.layer.cornerRadius = 5;
+    oneSelfBirthdaySelectTextField.layer.masksToBounds = YES;
     [self.target.view addSubview:oneSelfBirthdaySelectTextField];
     self.oneSelfBirthdaySelectTextField = oneSelfBirthdaySelectTextField;
     [self.oneSelfBirthdaySelectTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -166,10 +179,14 @@ static NSString * const identifier = @"loverCode";
     
   
     UITextField *fereBirthdaySelectTextField = [[UITextField alloc]init];
-    fereBirthdaySelectTextField.placeholder = @"请选择恋人生日";
+    fereBirthdaySelectTextField.placeholder = @"      请选择恋人生日     ";
     fereBirthdaySelectTextField.tag = 102;
     fereBirthdaySelectTextField.inputView = self.datePicker;
     fereBirthdaySelectTextField.delegate = self;
+    fereBirthdaySelectTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    fereBirthdaySelectTextField.layer.borderWidth = .5f;
+    fereBirthdaySelectTextField.layer.cornerRadius = 5;
+    fereBirthdaySelectTextField.layer.masksToBounds = YES;
     [self.target.view addSubview:fereBirthdaySelectTextField];
     self.fereBirthdaySelectTextField = fereBirthdaySelectTextField;
     [self.fereBirthdaySelectTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -179,17 +196,25 @@ static NSString * const identifier = @"loverCode";
     
     
     UIButton *matchingButton = [[UIButton alloc]init];
-    [matchingButton setTitle:@"匹配一下" forState:UIControlStateNormal];
+//    [matchingButton setImage:[UIImage imageNamed:@"btn_too_lover_mate_press.9"] forState:UIControlStateNormal];
+    matchingButton.layer.cornerRadius = 5;
+    matchingButton.layer.masksToBounds = YES;
     matchingButton.backgroundColor = [UIColor redColor];
+    [matchingButton setTitle:@"匹配一下" forState:UIControlStateNormal];
+    [matchingButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [matchingButton addTarget:self action:@selector(matchingButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.matchingButton = matchingButton;
     [self.target.view addSubview:matchingButton];
     [self.matchingButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.fereBirthdaySelectLabel.bottom).offset(10);
+        make.top.equalTo(self.fereBirthdaySelectLabel.bottom).offset(30);
         make.centerX.equalTo(self.target.view);
+        make.size.equalTo(CGSizeMake(200, 30));
     }];
+   
     
     
     UILabel *promptLabel = [[UILabel alloc]init];
+    promptLabel.textColor = [UIColor orangeColor];
     promptLabel.text = @"小提示：每期只能进行一次恋人匹配";
     [self.target.view addSubview:promptLabel];
     self.promptLabel = promptLabel;
@@ -217,7 +242,78 @@ static NSString * const identifier = @"loverCode";
     
     
 }
+- (void)playAudioFromFile:(NSString *)fileName {
+    
+    NSString *audioFile=[[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
+    //1.获得系统声音ID
+    SystemSoundID soundID=0;
+    /**
+     * inFileUrl:音频文件url
+     * outSystemSoundID:声音id（此函数会将音效文件加入到系统音频服务中并返回一个长整形ID）
+     */
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    //如果需要在播放完之后执行某些操作，可以调用如下方法注册一个播放完成回调函数
+//    AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, soundCompleteCallback, NULL);
+    //2.播放音频
+    AudioServicesPlaySystemSound(soundID);//播放音效
+    //    AudioServicesPlayAlertSound(soundID);//播放音效并震动
+    //3.销毁声音
+//    AudioServicesDisposeSystemSoundID(soundID);
+}
+- (void)matchingButtonClick:(UIButton *)snder {
+    
+    [UIView animateWithDuration:.5 animations:^{
+        self.sloganTitleLabel.alpha = 0;
+        self.oneSelfbBirthdaySelectLabel.alpha = 0;
+        self.oneSelfBirthdaySelectTextField.alpha = 0;
+        self.fereBirthdaySelectLabel.alpha = 0;
+        self.fereBirthdaySelectTextField.alpha = 0;
+        self.sexSelectLabel.alpha = 0;
+        self.manSexSelectButton.alpha = 0;
+        self.womanSexSelectButton.alpha = 0;
+        self.matchingButton.alpha = 0;
+    }];
+    
+    [self.sloganImageView startAnimating];
+    [self playAudioFromFile:@"coin"];
+    
+   dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSMutableArray *randomNumbers = [[NSMutableArray alloc]init];
+        for (int index = 0; index < 6; index++) {
+            int  randomNumber = random()% 50;
+            BOOL isUse = YES;
+            for (NSNumber *number in randomNumbers) {
+                if (randomNumber == [number integerValue]) {
+                    isUse = NO; break;
+                }
+            }
+            if (isUse) {
+                [randomNumbers addObject:@(randomNumber)];
+            }
+        }
+        
+        [NSThread sleepForTimeInterval:2];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showNumbers:randomNumbers];
+            
+        });
+    });
+    
+   
+    
+}
 
+- (void)showNumbers:(NSArray *)numbers {
+    
+    self.sloganImageView.alpha = 0;
+    
+    
+    
+    
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     
@@ -246,8 +342,9 @@ static NSString * const identifier = @"loverCode";
 #pragma mark respond
 - (void)manSexButtonClicked:(TBSexSelectButton *)manSexSelectButton {
     
+   
     self.womanSexSelectButton.selected = NO;
-    self.manSexSelectButton.selected = !manSexSelectButton;
+    self.manSexSelectButton.selected = !manSexSelectButton.selected;
     if (self.manSexSelectButton.selected) {
         self.loverCodeModel.sex = @"男";
     }else {
@@ -259,7 +356,7 @@ static NSString * const identifier = @"loverCode";
 - (void)womanSexButtonClicked:(TBSexSelectButton *)womanSexSelectButton {
     
     self.manSexSelectButton.selected = NO;
-    self.womanSexSelectButton.selected = womanSexSelectButton.selected;
+    self.womanSexSelectButton.selected = !womanSexSelectButton.selected;
     if (self.womanSexSelectButton.selected) {
         self.loverCodeModel.sex = @"女";
     }else {

@@ -48,14 +48,14 @@
         make.size.equalTo(CGSizeMake(40, 40));
     }];
     
-    UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.text = @"恋人特码";
-    [self.contentView addSubview:titleLabel];
-    self.titleLabel = titleLabel;
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.iconImageView.bottom);
-    }];
+//    UILabel *titleLabel = [[UILabel alloc]init];
+//    titleLabel.text = @"恋人特码";
+//    [self.contentView addSubview:titleLabel];
+//    self.titleLabel = titleLabel;
+//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.contentView);
+//        make.top.equalTo(self.iconImageView.bottom);
+//    }];
 }
 
 @end

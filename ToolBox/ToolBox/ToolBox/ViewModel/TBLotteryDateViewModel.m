@@ -11,12 +11,16 @@
 #import "TBCalendarView.h"
 #import "TBDateModel.h"
 
+
+
 @interface TBLotteryDateViewModel ()
 
 @property (nonatomic,weak) UIViewController *target;
 @property (nonatomic,weak) TBBriefIntroductionView *briefIntroductionView;
 @property (nonatomic,weak) TBCalendarView *calendarView;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSCalendar *calendar;
+@property (nonatomic,strong) NSDate *date;
 @end
 
 @implementation TBLotteryDateViewModel
@@ -26,8 +30,8 @@
         [self setupTarget:target];
         [self setupSourceData];
         [self setupComponent];
-        
         [self setupAssociate];
+       
     }
     return self;
     
@@ -38,6 +42,7 @@
     
     if (target) {
         self.target = target;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextMonth) name:@"nextMonthNotification" object:nil];
     }
     
 }
@@ -53,7 +58,7 @@
         make.height.equalTo(100);
     }];
     
-    TBCalendarView *calendarView  = [[TBCalendarView alloc]initWithDataSource:self.dataSource];
+    TBCalendarView *calendarView  = [[TBCalendarView alloc]initWithDataSource:[self dateModelsForDate:self.date calendar:self.calendar]];
     [self.target.view addSubview:calendarView];
     self.calendarView = calendarView;
     [self.calendarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,79 +72,76 @@
     
 }
 
-- (void)setupSourceData {
+
+
+
+// 获取Date所在月的日期模型数组
+- (NSMutableArray *)dateModelsForDate:(NSDate *)date calendar:(NSCalendar *)calendar {
     
+    NSDate *firstDayOfMonthDate  = [self dateForFirstDayOfMonth:date calendar:calendar];
+    NSMutableArray *dateModelArray = [[NSMutableArray alloc]init];
     
-     NSCalendar *calendar = [NSCalendar currentCalendar];
-     // 获取当月天数
-     NSRange currentDaysRange = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:[NSDate date]];
-    NSUInteger currentDays = currentDaysRange.length;
-    // 获取当月一号的开始索引 （7 1 2 3 4 5 6）
-    NSUInteger firstDayIndex = [calendar firstWeekday];
-    for (int index = 0; index < firstDayIndex; index++) {
+    NSUInteger currentDays = [self numberDaysOfMonthForDate:firstDayOfMonthDate calendar:calendar];
+    NSUInteger firstDayIndex = [self ordinalityOfWeekdayForDate:firstDayOfMonthDate calendar:calendar];
+    
+    for (int index = 0; index < firstDayIndex - 1; index++) {
         TBDateModel *dateModel = [[TBDateModel alloc]init];
-        [self.dataSource addObject:dateModel];
+        [dateModelArray addObject:dateModel];
     }
-    // 遍历当月日期组件 生成日期模型
-    
-    for (int insdex = 0; insdex < currentDays; insdex++) {
-        
-        NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond|NSCalendarUnitWeekday fromDate:[NSDate date]];
-        dateComponents.day = insdex + 1;
-        dateComponents.hour = 0;
-        dateComponents.minute = 0;
-        dateComponents.second = 0;
+    for (int index = 0; index < currentDays; index++) {
+        NSDate *date  = [firstDayOfMonthDate dateByAddingTimeInterval:3600 * 24 * index];
+        NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:date];
         TBDateModel *dateModel = [[TBDateModel alloc]initWithDatecomponts:dateComponents lottery:NO];
-        NSLog(@"%@",dateModel);
-        [self.dataSource addObject:dateModel];
+        [dateModelArray addObject:dateModel];
         
     }
+    return dateModelArray;
+
+}
+
+- (NSMutableArray *)nextMonthModelsForDate:(NSDate *)date calendar:(NSCalendar *)calendar {
     
+     NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:date];
+    if (dateComponents.month == 12) {
+        dateComponents.month = 0;
+    }else {
+       dateComponents.month = dateComponents.month + 1;
+    }
+    NSDate *nextMonthDate = [calendar dateFromComponents:dateComponents];
+    return  [self dateModelsForDate:nextMonthDate calendar:calendar];
+}
+
     
-    // 刷新collectionView
-    
-//    [self getFirstDayWeekForMonth:[NSDate date]];
+
+
+
+
+- (void)setupSourceData {
+        
+        
     
 }
+
+
 
 - (void)setupAssociate {
     
-  
-}
-
-
-
-
--(NSInteger)getCurrentMonthForDays{
-    // 创建一个日期类对象(当前月的calendar对象)
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    // NSRange是一个结构体，其中location是一个以0为开始的index，length是表示对象的长度。他们都是NSUInteger类型。
-    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:[NSDate date]];
-    NSUInteger numberOfDaysInMonth = range.length;
-    return numberOfDaysInMonth;
-}
-
-
--(NSInteger)getFirstDayWeekForMonth:(NSDate*)date
-{
-    // NSCalendarIdentifierGregorian : 指定日历的算法
-    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    // NSDateComponents封装了日期的组件,年月日时分秒等(个人感觉像是平时用的model模型)
-    // 调用NSCalendar的components:fromDate:方法返回一个NSDateComponents对象
-    // 需要的参数分别components:所需要的日期单位 date:目标月份的date对象
-    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond|NSCalendarUnitWeekday fromDate:date];
     
     
-    NSLog(@"NSDateComponents是这个样子的:%@",comps);
-    // 直接调用自己weekDay属性
-    NSInteger weekday = [comps weekday];
-
-    weekday--;
-    NSLog(@"[comps weekday] = %ld",(long)weekday);
-    if (weekday == 7) {
-        return 0;
-    }else return weekday;
 }
+
+
+- (void)nextMonth {
+    
+
+    [self.calendarView reloadData:[self nextMonthModelsForDate:self.date calendar:self.calendar]];
+    
+
+}
+
+
+
+
 
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {
@@ -148,4 +150,100 @@
     return _dataSource;
 }
 
+- (NSCalendar *)calendar {
+    if (!_calendar) {
+        _calendar = [NSCalendar currentCalendar];
+       
+    }
+   return  _calendar;
+}
+
+- (NSDate *)date {
+    if (!_date) {
+        _date = [NSDate date];
+    }
+    return _date;
+}
+
+
 @end
+
+
+
+@implementation TBLotteryDateViewModel (TBCalendar)
+
+// 当月的天数
+- (NSInteger)numberDaysOfMonthForDate:(NSDate *)date calendar:(NSCalendar *)calendar {
+   
+    // 获取当月天数
+    NSRange DaysRange = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
+    return DaysRange.length;
+}
+
+// 当月的第一个工作日星期序号
+- (NSInteger)ordinalityOfWeekdayForDate:(NSDate *)date calendar:(NSCalendar *)calendar {
+    
+    // 序号范围 1 ~ 7   1->周天 2->周一 ....  7->周六
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:date];
+    dateComponents.day = 1;
+    NSDate *firstDayOfMonthDate = [calendar dateFromComponents:dateComponents];
+    NSDateComponents *firstDayOfMonthComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:firstDayOfMonthDate];
+    return firstDayOfMonthComponents.weekday;
+}
+
+
+
+// 当月的第一个工作日的 date对象
+- (NSDate *)dateForFirstDayOfMonth:(NSDate *)date calendar:(NSCalendar *)calendar {
+    
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:date];
+    dateComponents.day = 1;
+    //    NSLog(@"%@",dateComponents);
+    NSDate *firstDayOfMonthDate = [calendar dateFromComponents:dateComponents];
+    return firstDayOfMonthDate;
+}
+
+
+
+
++ (NSString *)stringForCurrentDate {
+    
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger timeInterval = [zone secondsFromGMTForDate:[NSDate date]];
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval:timeInterval];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @" YYYY-MM ";
+    return [formatter stringFromDate:currentDate];
+    
+}
+
+
++ (NSString *)stringForChinadDate {
+    
+    return [TBLotteryDateViewModel stringForChinadDate:[NSDate date]];
+}
+
++ (NSString *)stringForChinadDate:(NSDate *)date {
+    
+    NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+    NSArray *chinaYears = @[  @"甲子",@"乙丑",@"丙寅",@"丁卯",@"戊辰 ",@"己巳",@"庚午",@"辛未",@"壬申",@"癸酉",
+                            @"甲戌",@"乙亥",@"丙子",@"丁丑",@"戊寅 ",@"己卯",@"庚辰",@"辛巳",@"壬午",@"癸未",
+                            @"甲申",@"乙酉",@"丙戌",@"丁亥",@"戊子 ",@"己丑",@"庚寅",@"辛卯",@"壬辰",@"癸巳",
+                            @"甲午",@"乙未",@"丙申",@"丁酉",@"戊戌 ",@"己亥",@"庚子",@"辛丑",@"壬寅",@"癸卯",
+                            @"甲辰",@"乙卯",@"丙辰",@"丁巳",@"戊午 ",@"己未",@"庚申",@"辛酉",@"壬戌",@"癸亥",
+                            ];
+    NSArray *chineseMonths = [NSArray arrayWithObjects:@"正月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                            @"七月", @"八月",@"九月", @"十月", @"冬月", @"腊月", nil];
+    NSArray *chineseDays = [NSArray arrayWithObjects:@"初一", @"初二", @"初三", @"初四", @"初五", @"初六", @"初七",
+                          @"初八", @"初九", @"初十",@"十一", @"十二", @"十三", @"十四",
+                          @"十五", @"十六", @"十七", @"十八", @"十九", @"二十",@"廿一",
+                          @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八",
+                          @"廿九", @"三十", nil];
+    
+    return [NSString stringWithFormat:@"%@年%@%@", chinaYears[components.year - 1], chineseMonths[components.month - 1], chineseDays[components.day - 1]];
+}
+@end
+
+
+

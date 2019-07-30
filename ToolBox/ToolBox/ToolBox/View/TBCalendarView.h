@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TBCalendarView : UIView
 - (instancetype)initWithDataSource:(NSArray *)dataSource;
+- (void)reloadData:(NSArray *)dataSource;
 @end
 
 
@@ -19,4 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TBCalendarHeaderView : UICollectionReusableView
 
 @end
+
+
+@interface TBCalendarFootView : UICollectionReusableView
+
+@end
+
 NS_ASSUME_NONNULL_END
