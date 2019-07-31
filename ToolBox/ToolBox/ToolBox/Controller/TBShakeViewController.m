@@ -46,7 +46,6 @@
 
         if (self.shake) {
             [self.shakeVM startShake:^(BOOL finished) {
-                
                 if (finished) {
                     __weak typeof(self) weakSelf = self;
                     weakSelf.shake = NO;

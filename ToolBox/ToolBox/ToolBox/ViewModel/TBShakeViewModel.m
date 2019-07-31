@@ -58,6 +58,7 @@
     
     
     UILabel *promptLabel = [[UILabel alloc]init];
+    promptLabel.font = [UIFont systemFontOfSize:12];
     promptLabel.text = @"小提示：每期只能进行一次幸运翻盘！";
     [self.target.view addSubview:promptLabel];
     self.promptLabel = promptLabel;

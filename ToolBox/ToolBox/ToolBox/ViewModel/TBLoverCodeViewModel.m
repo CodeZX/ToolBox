@@ -13,6 +13,7 @@
 #import "TBBirthdaySelectButton.h"
 #import "TBLoverCodeModel.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "TBBallView.h"
 @interface TBLoverCodeViewModel ()<UITextFieldDelegate>
 
 @property (nonatomic,weak) UIViewController  *target;
@@ -29,11 +30,14 @@
 @property (nonatomic,weak) UIButton *matchingButton;
 @property (nonatomic,weak) UILabel *promptLabel;
 
+
 @property (nonatomic,strong) TBLoverCodeModel *loverCodeModel;
 @property (nonatomic,strong) UIDatePicker *datePicker;
 @property (nonatomic,strong) UITextField *focusedTextField;
 
 
+
+@property (nonatomic,strong) NSMutableArray *ballViewArray;
 @end
 
 static NSString * const identifier = @"loverCode";
@@ -213,6 +217,29 @@ static NSString * const identifier = @"loverCode";
    
     
     
+    for (int index = 0; index < 6; index++) {
+        
+        TBBallView *ballView = [[TBBallView alloc]init];
+        ballView.alpha = 0;
+        [self.target.view addSubview:ballView];
+        TBBallView *lastBallView = [self.ballViewArray lastObject];
+        if (lastBallView) {
+            [ballView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(lastBallView.right).offset(10);
+                make.top.equalTo(self.briefIntroductionView.bottom).offset(50);
+                make.size.equalTo(CGSizeMake(30, 30));
+            }];
+        } else {
+            [ballView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.target.view.left).offset(70);
+                make.top.equalTo(self.briefIntroductionView.bottom).offset(50);
+                make.size.equalTo(CGSizeMake(30, 30));
+            }];
+        }
+        [self.ballViewArray addObject:ballView];
+    }
+    
+    
     UILabel *promptLabel = [[UILabel alloc]init];
     promptLabel.textColor = [UIColor orangeColor];
     promptLabel.text = @"小提示：每期只能进行一次恋人匹配";
@@ -263,6 +290,17 @@ static NSString * const identifier = @"loverCode";
 }
 - (void)matchingButtonClick:(UIButton *)snder {
     
+   
+    if (self.oneSelfBirthdaySelectTextField.text.length <= 0 || self.fereBirthdaySelectTextField.text.length <= 0 ) {
+
+        [SVProgressHUD showErrorWithStatus:@"请选择生日"];
+        [SVProgressHUD dismissWithDelay:1.0];
+        return;
+    }
+    
+    [self.oneSelfBirthdaySelectTextField resignFirstResponder];
+    [self.fereBirthdaySelectTextField resignFirstResponder];
+    
     [UIView animateWithDuration:.5 animations:^{
         self.sloganTitleLabel.alpha = 0;
         self.oneSelfbBirthdaySelectLabel.alpha = 0;
@@ -278,11 +316,11 @@ static NSString * const identifier = @"loverCode";
     [self.sloganImageView startAnimating];
     [self playAudioFromFile:@"coin"];
     
-   dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSMutableArray *randomNumbers = [[NSMutableArray alloc]init];
         for (int index = 0; index < 6; index++) {
-            int  randomNumber = random()% 50;
+            int  randomNumber = random()% 49 + 1;
             BOOL isUse = YES;
             for (NSNumber *number in randomNumbers) {
                 if (randomNumber == [number integerValue]) {
@@ -309,6 +347,13 @@ static NSString * const identifier = @"loverCode";
 - (void)showNumbers:(NSArray *)numbers {
     
     self.sloganImageView.alpha = 0;
+    
+    for (int index = 0; index < numbers.count; index++) {
+        TBBallView *ballView = self.ballViewArray[index];
+        ballView.alpha = 1;
+        NSNumber *number = numbers[index];
+        ballView.numberString = [NSString stringWithFormat:@"%@",number];
+    }
     
     
     
@@ -424,4 +469,12 @@ static NSString * const identifier = @"loverCode";
     return _datePicker;
 }
 
+
+
+- (NSMutableArray *)ballViewArray {
+    if (!_ballViewArray) {
+        _ballViewArray = [[NSMutableArray alloc]init];
+    }
+    return _ballViewArray;
+}
 @end

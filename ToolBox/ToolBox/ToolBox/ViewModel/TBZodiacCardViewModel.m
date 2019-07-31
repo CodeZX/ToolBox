@@ -10,6 +10,7 @@
 #import "TBBriefIntroductionView.h"
 #import "TBZodiacCardCollectionViewCell.h"
 #import "TBZodiacCardModel.h"
+#import <AudioToolbox/AudioToolbox.h>
 //#import ""
 
 @interface TBZodiacCardViewModel   ()
@@ -65,7 +66,9 @@ static NSString * const identifier = @"zodiacCard";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing =  0;
-    layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3.0, [UIScreen mainScreen].bounds.size.width/3.0);
+    CGFloat itemW = [UIScreen mainScreen].bounds.size.width/3.0;
+    CGFloat itemH = itemW / 0.85;
+    layout.itemSize = CGSizeMake(itemW,itemH);
     CGRect frame = CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
@@ -81,6 +84,7 @@ static NSString * const identifier = @"zodiacCard";
     
     UILabel *promptLabel = [[UILabel alloc]init];
     promptLabel.text = @"小提示：每期只能进行一次幸运翻盘！";
+    promptLabel.font = [UIFont systemFontOfSize:12];
     [self.target.view addSubview:promptLabel];
     self.promptLabel = promptLabel;
     [self.promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,33 +139,52 @@ static NSString * const identifier = @"zodiacCard";
 
 - (void)selectItemAtindexPath:(NSIndexPath *)indexPath {
     
-    if (self.selectZodiacCardModels.count < 3) {
-        [self.selectZodiacCardModels addObject:self.zodiacCardModels[indexPath.row]];
-        TBZodiacCardCollectionViewCell *cell = (TBZodiacCardCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        [cell startRotationAnimation:^(BOOL finished) {
-            if (finished) {
-                if (self.selectZodiacCardModels.count == 3) {
-                    self.selectEnd = YES;
-//                    [NSThread sleepForTimeInterval:0.2];
-                    [UIView transitionWithView:self.collectionView duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                        
-                    } completion:^(BOOL finished) {
-                       
-                        [self performSelector:@selector(sendRotationAllNotification) withObject:nil afterDelay:.6];
-                    }];
-                    
-                     [self.collectionView reloadData];
-                   
-                }
-            }
-        }];
-        
+    TBZodiacCardModel *zodiacCardModel = self.zodiacCardModels[indexPath.row];
+    for (TBZodiacCardModel *model in self.selectZodiacCardModels) {
+        if ([model isEqual:zodiacCardModel]) {
+            return;
+        }
     }
     
+    [self.selectZodiacCardModels addObject:zodiacCardModel];
+    TBZodiacCardCollectionViewCell *cell = (TBZodiacCardCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell startRotationAnimation:^(BOOL finished) {
+        if (finished) {
+            if (self.selectZodiacCardModels.count == 3) {
+                self.selectEnd = YES;
+                [UIView transitionWithView:self.collectionView duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                    [self.collectionView reloadData];
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        [self performSelector:@selector(sendRotationAllNotification) withObject:nil afterDelay:0];
+                        [self playAudioFromFile:@"sound_38"];
+                    }
+                    
+                }];
+            }
+        }
+    }];
     
+}
+
+- (void)playAudioFromFile:(NSString *)fileName {
     
-    
-    
+    NSString *audioFile=[[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
+    //1.获得系统声音ID
+    SystemSoundID soundID=0;
+    /**
+     * inFileUrl:音频文件url
+     * outSystemSoundID:声音id（此函数会将音效文件加入到系统音频服务中并返回一个长整形ID）
+     */
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    //如果需要在播放完之后执行某些操作，可以调用如下方法注册一个播放完成回调函数
+    //    AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, soundCompleteCallback, NULL);
+    //2.播放音频
+    AudioServicesPlaySystemSound(soundID);//播放音效
+    //    AudioServicesPlayAlertSound(soundID);//播放音效并震动
+    //3.销毁声音
+    //    AudioServicesDisposeSystemSoundID(soundID);
 }
 
 

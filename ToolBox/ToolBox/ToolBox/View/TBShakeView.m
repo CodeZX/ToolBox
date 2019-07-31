@@ -9,15 +9,16 @@
 #import "TBShakeView.h"
 #import <AudioToolbox/AudioToolbox.h>
 
+#import "TBBallView.h"
 @interface TBShakeView ()<CAAnimationDelegate>
 
 #define angle2Radian(angle)  ((angle)/180.0*M_PI)
 @property (nonatomic,weak) UIImageView *backgroundImageView;
 @property (nonatomic,weak) UIImageView *shakeImageView;
 @property (nonatomic,weak) NSArray *numberBallArray;
-@property (nonatomic,weak) UIImageView *centerNumberBallImageView;
-@property (nonatomic,weak) UIImageView *leftNumberBallImageView;
-@property (nonatomic,weak) UIImageView *rightNumberBallImageView;
+@property (nonatomic,weak) TBBallView *centerNumberBallImageView;
+@property (nonatomic,weak) TBBallView *leftNumberBallImageView;
+@property (nonatomic,weak) TBBallView *rightNumberBallImageView;
 @property (nonatomic,copy) void (^completion)(BOOL finished);
 
 @end
@@ -37,57 +38,62 @@
     
     self.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *backgroundImageView = [[UIImageView alloc]init];
-    backgroundImageView.backgroundColor = [UIColor redColor];
+    UIImageView *backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tool_shake_loading2"]];
+    NSArray *images = @[[UIImage imageNamed:@"icon_tool_shake_loading1"],[UIImage imageNamed:@"icon_tool_shake_loading2"],[UIImage imageNamed:@"icon_tool_shake_loading3"]];
+    [backgroundImageView setAnimationImages:images];
+//    backgroundImageView.backgroundColor = [UIColor redColor];
     [self addSubview:backgroundImageView];
     self.backgroundImageView = backgroundImageView;
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     
-    UIImageView *shakeImageView = [[UIImageView alloc]init];
-    shakeImageView.backgroundColor  = [UIColor blueColor];
-    [self addSubview:shakeImageView];
-    self.shakeImageView = shakeImageView;
-    [self.shakeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.backgroundImageView);
-        make.height.equalTo(100);
-        make.width.equalTo(80);
-    }];
+//    UIImageView *shakeImageView = [[UIImageView alloc]init];
+//    shakeImageView.backgroundColor  = [UIColor blueColor];
+//    [self addSubview:shakeImageView];
+//    self.shakeImageView = shakeImageView;
+//    [self.shakeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.backgroundImageView);
+//        make.height.equalTo(100);
+//        make.width.equalTo(80);
+//    }];
     
-    UIImageView *centerNumberBallImageView = [[UIImageView alloc]init];
-    centerNumberBallImageView.backgroundColor = [UIColor orangeColor];
+    TBBallView *centerNumberBallImageView = [[TBBallView alloc]init];
+//    centerNumberBallImageView.backgroundColor = [UIColor orangeColor];
+    centerNumberBallImageView.numberString = [NSString stringWithFormat:@"%ld",random()% 49 + 1];
     centerNumberBallImageView.alpha  = 0;
     [self addSubview:centerNumberBallImageView];
     self.centerNumberBallImageView = centerNumberBallImageView;
     [centerNumberBallImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         //        make.left.equalTo(self.left).offset(10);
         make.center.equalTo(self);
-        make.size.equalTo(CGSizeMake(20, 20));
+        make.size.equalTo(CGSizeMake(30, 30));
     }];
     
-    UIImageView *leftNumberBallImageView = [[UIImageView alloc]init];
-    leftNumberBallImageView.backgroundColor = [UIColor yellowColor];
+    TBBallView *leftNumberBallImageView = [[TBBallView alloc]init];
+//    leftNumberBallImageView.backgroundColor = [UIColor yellowColor];
+    leftNumberBallImageView.numberString = [NSString stringWithFormat:@"%ld",random()% 49 + 1];;
     leftNumberBallImageView.alpha = 0;
     [self addSubview:leftNumberBallImageView];
     self.leftNumberBallImageView = leftNumberBallImageView;
     [leftNumberBallImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(centerNumberBallImageView.left).offset(-20);
         make.centerY.equalTo(self);
-        make.size.equalTo(CGSizeMake(20, 20));
+        make.size.equalTo(CGSizeMake(30, 30));
     }];
     
 
     
-    UIImageView *rightNumberBallImageView = [[UIImageView alloc]init];
-    rightNumberBallImageView.backgroundColor = [UIColor blackColor];
+    TBBallView *rightNumberBallImageView = [[TBBallView alloc]init];
+//    rightNumberBallImageView.backgroundColor = [UIColor blackColor];
+    rightNumberBallImageView.numberString = [NSString stringWithFormat:@"%ld",random()% 49 + 1];
     rightNumberBallImageView.alpha = 0;
     [self addSubview:rightNumberBallImageView];
     self.rightNumberBallImageView = rightNumberBallImageView;
     [rightNumberBallImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(centerNumberBallImageView.right).offset(20);
         make.centerY.equalTo(self);
-        make.size.equalTo(CGSizeMake(20, 20));
+        make.size.equalTo(CGSizeMake(30, 30));
     }];
     
 }
@@ -97,32 +103,60 @@
 - (void)startSharke:(void (^)(BOOL))completion {
     
     self.completion = completion;
-    AudioServicesPlaySystemSound(1010);//振
-    CAKeyframeAnimation *keyAnima;
-    //1.创建核心动画
-    keyAnima = [CAKeyframeAnimation animation];
-    keyAnima.keyPath = @"transform.rotation";
-    self.shakeImageView.layer.position = CGPointMake(self.shakeImageView.frame.origin.x + self.shakeImageView.frame.size.width/2,
-                                                     self.shakeImageView.frame.origin.y +self.shakeImageView.frame.size.height);
-    self.shakeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
-    //设置图标抖动弧度  把度数转换为弧度  度数/180*M_PI
-    keyAnima.values = @[@(angle2Radian(0)),
-                        @(-angle2Radian(8)),
-                        @(angle2Radian(0)),
-                        @(angle2Radian(8)),
-                        @(angle2Radian(0))];
-    //设置动画时间
-    keyAnima.duration = .7;
-    //设置动画的重复次数(设置为最大值)
-    keyAnima.repeatCount = 1;
-    keyAnima.fillMode = kCAFillModeForwards;
-    keyAnima.removedOnCompletion = NO;
-    [self.shakeImageView.layer addAnimation:keyAnima forKey:@"animateLayer"];
+    [self playAudioFromFile:@"shake_sound_male"];
+    [self.backgroundImageView setAnimationDuration:1];
+    [self.backgroundImageView setAnimationRepeatCount:2];
+    [self.backgroundImageView startAnimating];
+    [self startForecastAnimationDelay:2];
+//    AudioServicesPlaySystemSound(1010);//振
+//    CAKeyframeAnimation *keyAnima;
+//    //1.创建核心动画
+//    keyAnima = [CAKeyframeAnimation animation];
+//    keyAnima.keyPath = @"transform.rotation";
+//    self.shakeImageView.layer.position = CGPointMake(self.shakeImageView.frame.origin.x + self.shakeImageView.frame.size.width/2,
+//                                                     self.shakeImageView.frame.origin.y +self.shakeImageView.frame.size.height);
+//    self.shakeImageView.layer.anchorPoint = CGPointMake(0.5, 1);
+//    //设置图标抖动弧度  把度数转换为弧度  度数/180*M_PI
+//    keyAnima.values = @[@(angle2Radian(0)),
+//                        @(-angle2Radian(8)),
+//                        @(angle2Radian(0)),
+//                        @(angle2Radian(8)),
+//                        @(angle2Radian(0))];
+//    //设置动画时间
+//    keyAnima.duration = .7;
+//    //设置动画的重复次数(设置为最大值)
+//    keyAnima.repeatCount = 1;
+//    keyAnima.fillMode = kCAFillModeForwards;
+//    keyAnima.removedOnCompletion = NO;
+//    [self.shakeImageView.layer addAnimation:keyAnima forKey:@"animateLayer"];
+//
+//
+}
+
+
+- (void)playAudioFromFile:(NSString *)fileName {
     
-    [self startForecastAnimationDelay:0.8];
+    NSString *audioFile=[[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+    NSURL *fileUrl=[NSURL fileURLWithPath:audioFile];
+    //1.获得系统声音ID
+    SystemSoundID soundID=0;
+    /**
+     * inFileUrl:音频文件url
+     * outSystemSoundID:声音id（此函数会将音效文件加入到系统音频服务中并返回一个长整形ID）
+     */
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundID);
+    //如果需要在播放完之后执行某些操作，可以调用如下方法注册一个播放完成回调函数
+    //    AudioServicesAddSystemSoundCompletion(soundID, NULL, NULL, soundCompleteCallback, NULL);
+    //2.播放音频
+    AudioServicesPlaySystemSound(soundID);//播放音效
+    //    AudioServicesPlayAlertSound(soundID);//播放音效并震动
+    //3.销毁声音
+    //    AudioServicesDisposeSystemSoundID(soundID);
 }
 
 - (void)startForecastAnimationDelay:(CFTimeInterval)delay {
+    
+    self.backgroundImageView.image = [UIImage imageNamed:@"icon_tool_shake_light"];
     
     [self hideShakeImageViewAnimationBeginTime:CACurrentMediaTime() + delay forKey:@"showShakeAnimation"];
     [self setAnimation:self.leftNumberBallImageView beginTime:CACurrentMediaTime() + delay forKey:@"leftAnimation" delegate:nil];
