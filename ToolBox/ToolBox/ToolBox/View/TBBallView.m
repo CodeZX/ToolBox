@@ -67,7 +67,7 @@
     [self addSubview:numberLabel];
     self.numberLabel = numberLabel;
     [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self);
+        make.center.equalTo(self).centerOffset(CGPointMake(-1, -3));
     }];
     
 }

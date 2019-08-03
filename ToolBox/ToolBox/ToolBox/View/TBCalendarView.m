@@ -53,15 +53,17 @@ static NSString * const footIdentifier = @"footCalendarViewcell";
    
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.headerReferenceSize = CGSizeMake(100, 100);
-    layout.footerReferenceSize = CGSizeMake(100, 44);
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing =  0;
+    layout.headerReferenceSize = CGSizeMake(0, 100);
+    layout.footerReferenceSize = CGSizeMake(0, 44);
+    layout.minimumInteritemSpacing = 1;
+    layout.minimumLineSpacing =  1;
 //    layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3.0, [UIScreen mainScreen].bounds.size.width/3.0);
-    layout.itemSize = CGSizeMake(50, 50);
-    CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 20,[UIScreen mainScreen].bounds.size.height);
+    CGFloat W = [UIScreen mainScreen].bounds.size.width - 20;
+    CGFloat H = [UIScreen mainScreen].bounds.size.width + 50;
+    layout.itemSize = CGSizeMake((W - 6) / 7, (W - 6) / 7);
+    CGRect frame = CGRectMake(0, 0,W ,H);
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:layout];
-    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.backgroundColor = [UIColor clearColor];
     [self addSubview:collectionView];
     self.collectionView = collectionView;
     collectionView.delegate = self;
@@ -94,12 +96,10 @@ static NSString * const footIdentifier = @"footCalendarViewcell";
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         
         TBCalendarHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-        headerView.backgroundColor = [UIColor redColor];
     
         return headerView;
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         TBCalendarFootView *footView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footIdentifier forIndexPath:indexPath];
-        footView.backgroundColor = [UIColor redColor];
         return footView;
     }
     
@@ -124,6 +124,7 @@ static NSString * const footIdentifier = @"footCalendarViewcell";
 
 @interface TBCalendarHeaderView ()
 
+@property (nonatomic,weak) UIImageView *backgroudImageView;
 @property (nonatomic,weak) UILabel *dateLabel;
 @property (nonatomic,weak) UIButton *nextButton;
 @property (nonatomic,weak) UIButton *backButton;
@@ -144,55 +145,97 @@ static NSString * const footIdentifier = @"footCalendarViewcell";
 
 - (void)setupUI {
     
+    self.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_calendar_top_centre.9"]];
+    [self addSubview:backgroundImageView];
+    self.backgroudImageView = backgroundImageView;
+    [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(10);
+        make.left.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-10);
+        make.height.equalTo(self).multipliedBy(0.5);
+    }];
     
     UILabel *dateLabel = [[UILabel alloc]init];
-    dateLabel.backgroundColor = [UIColor blueColor];
+    dateLabel.textColor = [UIColor whiteColor];
+//    dateLabel.backgroundColor = [UIColor whiteColor];
     dateLabel.text = [TBLotteryDateViewModel stringForCurrentDate];
     [self addSubview:dateLabel];
     self.dateLabel  = dateLabel;
     [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.top.equalTo(self);
+        make.top.equalTo(self).offset(20);
         make.bottom.equalTo(self).offset(-50);
     }];
     
     
     UIButton *backButton = [[UIButton alloc]init];
-    [backButton setTitle:@"<<" forState:UIControlStateNormal];
+    UIImage *backBackgroundImage = [UIImage imageNamed:@"bg_calendar_top_left.9"];
+    UIImage *backtretchableBackgroundImage  = [backBackgroundImage stretchableImageWithLeftCapWidth:backBackgroundImage.size.width/2 topCapHeight:backBackgroundImage.size.height/2];
+    [backButton setBackgroundImage:backtretchableBackgroundImage forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"icon_left"] forState:UIControlStateNormal];
     [self addSubview:backButton];
     self.backButton = backButton;
     [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
-        make.height.equalTo(dateLabel);
-        make.width.equalTo(100);
+        make.top.bottom.equalTo(backgroundImageView);
+        make.width.equalTo(self).multipliedBy(0.3);
     }];
 
     UIButton *nextButton = [[UIButton alloc]init];
+    UIImage *nextBackgroundImage = [UIImage imageNamed:@"bg_calendar_top_right.9"];
+    UIImage *nextTretchableBackgroundImage  = [nextBackgroundImage stretchableImageWithLeftCapWidth:nextBackgroundImage.size.width/2 topCapHeight:nextBackgroundImage.size.height/2];
+    [nextButton setBackgroundImage:nextTretchableBackgroundImage forState:UIControlStateNormal];
+    [nextButton setImage:[UIImage imageNamed:@"icon_right"] forState:UIControlStateNormal];
     [nextButton addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [nextButton setTitle:@">>" forState:UIControlStateNormal];
     [self addSubview:nextButton];
     self.nextButton = nextButton;
     [self.nextButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self);
-        make.height.equalTo(dateLabel);
-        make.width.equalTo(100);
+        make.top.bottom.equalTo(backgroundImageView);
+        make.width.equalTo(backButton);
     }];
     
+    UIImageView *leftLinkImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_calendar_binding"]];
+//    leftLinkImageView.backgroundColor = [UIColor yellowColor];
+    [self addSubview:leftLinkImageView];
+    [leftLinkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.top);
+        make.left.equalTo(backButton.right).offset(20);
+        make.size.equalTo(CGSizeMake(10, 20));
+    }];
+    
+    
+    UIImageView *rightLinkImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_calendar_binding"]];
+    [self addSubview:rightLinkImageView];
+    [rightLinkImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.top);
+        make.right.equalTo(nextButton.left).offset(-20);
+        make.size.equalTo(CGSizeMake(10, 20));
+    }];
+    
+    
     UIView *weekDayView = [[UIView alloc]init];
+//    weekDayView.alpha = 0;
     weekDayView.backgroundColor = [UIColor whiteColor];
     [self addSubview:weekDayView];
     self.weekDayView = weekDayView;
     [self.weekDayView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self);
-        make.top.equalTo(self.dateLabel.bottom);
+        make.left.right.equalTo(self);
+        make.bottom.equalTo(self).offset(-1);
+        make.top.equalTo(self.backgroudImageView.bottom);
     }];
     
     UILabel *lastWeekDayLabel = nil;
+    NSArray *weeks = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六",];
     for (int index = 0; index < 7; index++) {
         
         UILabel *weekDayLabel = [[UILabel alloc]init];
+        weekDayLabel.font = [UIFont systemFontOfSize:18];
+//        weekDayLabel.backgroundColor = [UIColor yellowColor];
         weekDayLabel.textAlignment = NSTextAlignmentCenter;
-        weekDayLabel.text = [NSString stringWithFormat:@"%d",index];
+        weekDayLabel.text = weeks[index];
         [self.weekDayView addSubview:weekDayLabel];
         if (index == 0) {
             [weekDayLabel mas_makeConstraints:^(MASConstraintMaker *make) {

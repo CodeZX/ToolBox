@@ -48,6 +48,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self.navigationController pushViewController:[[TBShakeViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[TBLotteryDateViewController alloc]init] animated:YES];
 }
 @end

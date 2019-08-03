@@ -18,6 +18,7 @@
 @property (nonatomic,weak) UIButton *openPuzzleButton;
 @property (nonatomic,weak) UIButton *pastPuzzlesButton;
 @property (nonatomic,weak) UILabel *promptLabel;
+@property (nonatomic,weak) UIView *v;
 
 @end
 @implementation TBKitBagViewModel
@@ -64,28 +65,35 @@
     }];
     
     
-    UIImageView *pictureImageView = [[UIImageView alloc]init];
-    
-    pictureImageView.backgroundColor = [UIColor blueColor];
+    UIImageView *pictureImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tips_close1"]];
+    NSArray *imags = @[[UIImage imageNamed:@"icon_tips_close1"],
+                     [UIImage imageNamed:@"icon_tips_close2"],
+                     [UIImage imageNamed:@"icon_tips_close3"],
+                     [UIImage imageNamed:@"icon_tips_close4"],
+                     [UIImage imageNamed:@"icon_tips_close5"],
+                     [UIImage imageNamed:@"icon_tips_close6"],];
+    [pictureImageView setAnimationImages:imags];
+    [pictureImageView setAnimationRepeatCount:1];
+    [pictureImageView setAnimationDuration:2];
+//    pictureImageView.backgroundColor = [UIColor blueColor];
     [self.target.view addSubview:pictureImageView];
     self.pictureImageView = pictureImageView;
     [self.pictureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.periodsLabel.bottom).offset(10);
         make.centerX.equalTo(self.periodsLabel);
-        make.size.equalTo(CGSizeMake(100, 120));
+        make.size.equalTo(CGSizeMake(150, 180));
     }];
     
     
     UIButton *openPuzzleButton = [[UIButton alloc]init];
-    [openPuzzleButton setTitle:@"打开锦囊" forState:UIControlStateNormal];
-    openPuzzleButton.backgroundColor = [UIColor yellowColor];
+    [openPuzzleButton setBackgroundImage:[UIImage imageNamed:@"btn_tool_tips_open_nopress"] forState:UIControlStateNormal];
     [openPuzzleButton addTarget:self action:@selector(openPuzzleClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:openPuzzleButton];
     self.openPuzzleButton = openPuzzleButton;
     [self.openPuzzleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.pictureImageView.bottom).offset(10);
+        make.top.equalTo(self.pictureImageView.bottom).offset(20);
         make.centerX.equalTo(self.pictureImageView);
-        make.size.equalTo(CGSizeMake(200, 60));
+//        make.size.equalTo(CGSizeMake(60,200 ));
     }];
     
     
@@ -103,15 +111,14 @@
     
     
     UIButton *pastPuzzlesButton = [[UIButton alloc]init];
-    [pastPuzzlesButton setTitle:@"往期历史" forState:UIControlStateNormal];
-    pastPuzzlesButton.backgroundColor = [UIColor yellowColor];
+    [pastPuzzlesButton setBackgroundImage:[UIImage imageNamed:@"btn_tool_tips_history_nopress"] forState:UIControlStateNormal];
     [pastPuzzlesButton addTarget:self action:@selector(pastPuzzlesClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:pastPuzzlesButton];
     self.pastPuzzlesButton = pastPuzzlesButton;
     [self.pastPuzzlesButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.openPuzzleButton.bottom).offset(10);
         make.centerX.equalTo(self.openPuzzleButton);
-        make.size.equalTo(CGSizeMake(200, 60));
+//        make.size.equalTo(CGSizeMake(200, 60));
     }];
     
     
@@ -128,6 +135,7 @@
         make.bottom.equalTo(self.target.view).offset(-10);
         make.centerX.equalTo(self.target.view);
     }];
+    
     
     
 }
@@ -147,13 +155,17 @@
 
 - (void)openPuzzleClick:(UIButton *)sender {
     
-    [UIView transitionWithView:self.pictureImageView duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+    
+     [self.pictureImageView startAnimating];
+    [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
         self.openPuzzleButton.alpha = 0;
         self.puzzleLabel.alpha = 1;
-        self.pictureImageView.backgroundColor = [UIColor redColor];
-    } completion:^(BOOL finished) {
         
+    } completion:^(BOOL finished) {
+        [self.pictureImageView setImage:[UIImage imageNamed:@"icon_tips_close6"]];
     }];
+    
+   
     
 }
 

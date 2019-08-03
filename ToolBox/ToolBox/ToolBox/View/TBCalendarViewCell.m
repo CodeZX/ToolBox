@@ -46,17 +46,20 @@ static NSString * const identifier = @"calenderViewCell";
 
 - (void)setupUI {
     
-    UIImageView *backgroundImageView = [[UIImageView alloc]init];
-    backgroundImageView.backgroundColor  =  [UIColor redColor];
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    UIImageView *backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_date"]];
+//    backgroundImageView.backgroundColor  =  [UIColor whiteColor];
     [self.contentView addSubview:backgroundImageView];
     self.backgroundImageView = backgroundImageView;
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
+//        make.edges.equalTo(self);
+        make.center.equalTo(self.contentView);
+        make.size.equalTo(self.contentView).multipliedBy(0.7);
     }];
     
 
     UILabel *dateLabel = [[UILabel alloc]init];
-    dateLabel.font = [UIFont systemFontOfSize:11];
+    dateLabel.font = [UIFont boldSystemFontOfSize:16];
     dateLabel.text = @"1";
     [self.contentView addSubview:dateLabel];
     self.dateLabel = dateLabel;
@@ -65,20 +68,18 @@ static NSString * const identifier = @"calenderViewCell";
     }];
     
     
-    UIImageView *selectImageView = [[UIImageView alloc]init];
-    selectImageView.alpha = 0;
-    selectImageView.backgroundColor  =  [UIColor yellowColor];
+    UIImageView *selectImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_date_rope01"]];
+//    selectImageView.alpha = 0;
     [self.contentView addSubview:selectImageView];
     self.selectImageView = selectImageView;
     [self.selectImageView mas_makeConstraints:^(MASConstraintMaker *make) {
        make.center.equalTo(self.contentView);
-        make.size.equalTo(self.contentView).sizeOffset(CGSizeMake(-5, -5));
+        make.size.equalTo(self.contentView).multipliedBy(0.6);
     }];
     
     
-    UIImageView *currentDateImageView = [[UIImageView alloc]init];
+    UIImageView *currentDateImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_date_rope02"]];
     currentDateImageView.alpha = 0;
-    currentDateImageView.backgroundColor  =  [UIColor blueColor];
     [self.contentView addSubview:currentDateImageView];
     self.currentDateImageView = currentDateImageView;
     [self.currentDateImageView mas_makeConstraints:^(MASConstraintMaker *make) {
