@@ -150,6 +150,16 @@
 		3C3779A522F56A5000F92086 /* bg_calendar_below.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C37799E22F56A5000F92086 /* bg_calendar_below.9.png */; };
 		3C3779A722F56C2700F92086 /* icon_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779A622F56C2700F92086 /* icon_left@2x.png */; };
 		3C3779A922F56C4900F92086 /* icon_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779A822F56C4900F92086 /* icon_right@2x.png */; };
+		3C3779B322F7D24500F92086 /* SUTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3779AC22F7D24500F92086 /* SUTableView.m */; };
+		3C3779B422F7D24500F92086 /* SUTableViewInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3779AD22F7D24500F92086 /* SUTableViewInterceptor.m */; };
+		3C3779B522F7D24500F92086 /* CLStaticTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3779AF22F7D24500F92086 /* CLStaticTextCell.m */; };
+		3C3779B622F7D24500F92086 /* CLZoomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3779B122F7D24500F92086 /* CLZoomPickerView.m */; };
+		3C3779BC22F94AD500F92086 /* icon_tool_cal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779BB22F94AD500F92086 /* icon_tool_cal.jpg */; };
+		3C3779BF22F9525A00F92086 /* TBRandomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3779BE22F9525A00F92086 /* TBRandomPickerView.m */; };
+		3C3779C122FBD05600F92086 /* btn_common_pressed.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C022FBD05600F92086 /* btn_common_pressed.9.png */; };
+		3C3779C422FBD05F00F92086 /* btn_common_disabled.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C222FBD05F00F92086 /* btn_common_disabled.9.png */; };
+		3C3779C522FBD05F00F92086 /* btn_common_normal.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C322FBD05F00F92086 /* btn_common_normal.9.png */; };
+		3C3779C722FBFB1C00F92086 /* wheel_backgroud.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C622FBFB1C00F92086 /* wheel_backgroud.jpg */; };
 		3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B622D4799600BABD80 /* TBShakeView.m */; };
 		3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */; };
 		3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */; };
@@ -352,6 +362,21 @@
 		3C37799E22F56A5000F92086 /* bg_calendar_below.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_calendar_below.9.png; sourceTree = "<group>"; };
 		3C3779A622F56C2700F92086 /* icon_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_left@2x.png"; sourceTree = "<group>"; };
 		3C3779A822F56C4900F92086 /* icon_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_right@2x.png"; sourceTree = "<group>"; };
+		3C3779AB22F7D24500F92086 /* CLStaticTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLStaticTextCell.h; sourceTree = "<group>"; };
+		3C3779AC22F7D24500F92086 /* SUTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUTableView.m; sourceTree = "<group>"; };
+		3C3779AD22F7D24500F92086 /* SUTableViewInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUTableViewInterceptor.m; sourceTree = "<group>"; };
+		3C3779AE22F7D24500F92086 /* CLZoomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLZoomPickerView.h; sourceTree = "<group>"; };
+		3C3779AF22F7D24500F92086 /* CLStaticTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLStaticTextCell.m; sourceTree = "<group>"; };
+		3C3779B022F7D24500F92086 /* SUTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUTableView.h; sourceTree = "<group>"; };
+		3C3779B122F7D24500F92086 /* CLZoomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLZoomPickerView.m; sourceTree = "<group>"; };
+		3C3779B222F7D24500F92086 /* SUTableViewInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUTableViewInterceptor.h; sourceTree = "<group>"; };
+		3C3779BB22F94AD500F92086 /* icon_tool_cal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon_tool_cal.jpg; sourceTree = "<group>"; };
+		3C3779BD22F9525A00F92086 /* TBRandomPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBRandomPickerView.h; sourceTree = "<group>"; };
+		3C3779BE22F9525A00F92086 /* TBRandomPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBRandomPickerView.m; sourceTree = "<group>"; };
+		3C3779C022FBD05600F92086 /* btn_common_pressed.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_common_pressed.9.png; sourceTree = "<group>"; };
+		3C3779C222FBD05F00F92086 /* btn_common_disabled.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_common_disabled.9.png; sourceTree = "<group>"; };
+		3C3779C322FBD05F00F92086 /* btn_common_normal.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_common_normal.9.png; sourceTree = "<group>"; };
+		3C3779C622FBFB1C00F92086 /* wheel_backgroud.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wheel_backgroud.jpg; sourceTree = "<group>"; };
 		3CBCE8B522D4799600BABD80 /* TBShakeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeView.h; sourceTree = "<group>"; };
 		3CBCE8B622D4799600BABD80 /* TBShakeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeView.m; sourceTree = "<group>"; };
 		3CBCE8B822D85D2100BABD80 /* TBKitBagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBKitBagViewController.h; sourceTree = "<group>"; };
@@ -479,6 +504,7 @@
 		3C3778B322EECC9100F92086 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3C3779BA22F94A0F00F92086 /* estimate */,
 				3C37798F22F569D100F92086 /* calend */,
 				3C37794E22F4247F00F92086 /* zodiac */,
 				3C37792B22F2D34A00F92086 /* Lottery */,
@@ -664,6 +690,33 @@
 			name = calend;
 			sourceTree = "<group>";
 		};
+		3C3779AA22F7D24500F92086 /* 自定义选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				3C3779AB22F7D24500F92086 /* CLStaticTextCell.h */,
+				3C3779AC22F7D24500F92086 /* SUTableView.m */,
+				3C3779AD22F7D24500F92086 /* SUTableViewInterceptor.m */,
+				3C3779AE22F7D24500F92086 /* CLZoomPickerView.h */,
+				3C3779AF22F7D24500F92086 /* CLStaticTextCell.m */,
+				3C3779B022F7D24500F92086 /* SUTableView.h */,
+				3C3779B122F7D24500F92086 /* CLZoomPickerView.m */,
+				3C3779B222F7D24500F92086 /* SUTableViewInterceptor.h */,
+			);
+			path = "自定义选择器";
+			sourceTree = "<group>";
+		};
+		3C3779BA22F94A0F00F92086 /* estimate */ = {
+			isa = PBXGroup;
+			children = (
+				3C3779C622FBFB1C00F92086 /* wheel_backgroud.jpg */,
+				3C3779C222FBD05F00F92086 /* btn_common_disabled.9.png */,
+				3C3779C322FBD05F00F92086 /* btn_common_normal.9.png */,
+				3C3779C022FBD05600F92086 /* btn_common_pressed.9.png */,
+				3C3779BB22F94AD500F92086 /* icon_tool_cal.jpg */,
+			);
+			name = estimate;
+			sourceTree = "<group>";
+		};
 		3CE273BF22C4A0B100E9C496 = {
 			isa = PBXGroup;
 			children = (
@@ -838,6 +891,9 @@
 				3CBCE8DA22E5B5D800BABD80 /* TBCalendarViewCell.m */,
 				3C3778E022F1314500F92086 /* TBBallView.h */,
 				3C3778E122F1314500F92086 /* TBBallView.m */,
+				3C3779AA22F7D24500F92086 /* 自定义选择器 */,
+				3C3779BD22F9525A00F92086 /* TBRandomPickerView.h */,
+				3C3779BE22F9525A00F92086 /* TBRandomPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -988,6 +1044,7 @@
 				3C37793922F2D39600F92086 /* bg_tool_lucky_6.png in Resources */,
 				3C37796422F424FF00F92086 /* ico_tiger_press.png in Resources */,
 				3C37790522F16FFC00F92086 /* ico_card_dog.png in Resources */,
+				3C3779C722FBFB1C00F92086 /* wheel_backgroud.jpg in Resources */,
 				3C37797A22F4294100F92086 /* ico_sheep.png in Resources */,
 				3C37790222F16FFC00F92086 /* ico_card_5.png in Resources */,
 				3C29A88322D0912A00590932 /* ico_card_2.png in Resources */,
@@ -1038,8 +1095,10 @@
 				3C37791F22F2B2FB00F92086 /* icon_tips_close4.png in Resources */,
 				3C3778B522EECCFD00F92086 /* bg_history_top.9@3x.png in Resources */,
 				3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */,
+				3C3779C122FBD05600F92086 /* btn_common_pressed.9.png in Resources */,
 				3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */,
 				3C3778D122F0305200F92086 /* jb7.png in Resources */,
+				3C3779BC22F94AD500F92086 /* icon_tool_cal.jpg in Resources */,
 				3C37790422F16FFC00F92086 /* ico_card_snake.png in Resources */,
 				3C37796522F424FF00F92086 /* ico_tiger.png in Resources */,
 				3C37796C22F424FF00F92086 /* ico_rabbit_press.png in Resources */,
@@ -1086,6 +1145,7 @@
 				3C3778D622F0305200F92086 /* jb1.png in Resources */,
 				3C37796B22F424FF00F92086 /* ico_cow.png in Resources */,
 				3C37797E22F4297900F92086 /* ico_chicken.png in Resources */,
+				3C3779C522FBD05F00F92086 /* btn_common_normal.9.png in Resources */,
 				3C37791D22F2B2FB00F92086 /* icon_tips_close5.png in Resources */,
 				3C37796122F424FF00F92086 /* ico_mouse_press.png in Resources */,
 				3C3778D222F0305200F92086 /* jb4.png in Resources */,
@@ -1097,6 +1157,7 @@
 				3C3778FB22F16FFC00F92086 /* ico_card_4.png in Resources */,
 				3C37797122F424FF00F92086 /* ico_sheep_press.png in Resources */,
 				3C3778BB22F00D7D00F92086 /* ball_blue_tool_lover@3x.png in Resources */,
+				3C3779C422FBD05F00F92086 /* btn_common_disabled.9.png in Resources */,
 				3C37793B22F2D39600F92086 /* bg_tool_lucky_5.png in Resources */,
 				3C37798922F430AD00F92086 /* blue_wave_press.png in Resources */,
 				3C37797822F4292C00F92086 /* ico_rabbit.png in Resources */,
@@ -1182,8 +1243,11 @@
 				3CE2740B22C9D39000E9C496 /* TBLoverCodeViewModel.m in Sources */,
 				3CBCE8C322DC55B400BABD80 /* TBLotteryViewModel.m in Sources */,
 				3CBCE8D822E5AB6900BABD80 /* TBCalendarView.m in Sources */,
+				3C3779BF22F9525A00F92086 /* TBRandomPickerView.m in Sources */,
 				3C3778AF22EAE21E00F92086 /* TBEstimateViewController.m in Sources */,
 				3CE273DB22C4A0B300E9C496 /* main.m in Sources */,
+				3C3779B522F7D24500F92086 /* CLStaticTextCell.m in Sources */,
+				3C3779B422F7D24500F92086 /* SUTableViewInterceptor.m in Sources */,
 				3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */,
 				3CE2742322CB594F00E9C496 /* TBLoverCodeModel.m in Sources */,
 				3CE2741A22CA048C00E9C496 /* TBToolBoxsCollectionViewCell.m in Sources */,
@@ -1194,10 +1258,12 @@
 				3CE2741722CA039E00E9C496 /* TBToolBoxsViewModel.m in Sources */,
 				3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */,
 				3CBCE8CF22DEF82000BABD80 /* TBTurntableView.m in Sources */,
+				3C3779B322F7D24500F92086 /* SUTableView.m in Sources */,
 				3CE2741D22CB321800E9C496 /* TBSexSelectButton.m in Sources */,
 				3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */,
 				3C3778E222F1314500F92086 /* TBBallView.m in Sources */,
 				3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */,
+				3C3779B622F7D24500F92086 /* CLZoomPickerView.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
 				3CBCE8CC22DEF58C00BABD80 /* TBTurntableViewModel.m in Sources */,
 				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
