@@ -160,6 +160,30 @@
 		3C3779C422FBD05F00F92086 /* btn_common_disabled.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C222FBD05F00F92086 /* btn_common_disabled.9.png */; };
 		3C3779C522FBD05F00F92086 /* btn_common_normal.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C322FBD05F00F92086 /* btn_common_normal.9.png */; };
 		3C3779C722FBFB1C00F92086 /* wheel_backgroud.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C3779C622FBFB1C00F92086 /* wheel_backgroud.jpg */; };
+		3C491ECB230134E9001EBC21 /* icon_tool_animals.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC4230134E8001EBC21 /* icon_tool_animals.png */; };
+		3C491ECC230134E9001EBC21 /* icon_tool_beauty_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC5230134E8001EBC21 /* icon_tool_beauty_night.png */; };
+		3C491ECD230134E9001EBC21 /* icon_tips_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC6230134E8001EBC21 /* icon_tips_night.png */; };
+		3C491ECE230134E9001EBC21 /* icon_tool_beauty.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC7230134E8001EBC21 /* icon_tool_beauty.png */; };
+		3C491ECF230134E9001EBC21 /* icon_tool_abacus_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC8230134E8001EBC21 /* icon_tool_abacus_night.png */; };
+		3C491ED0230134E9001EBC21 /* icon_tool_animals_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EC9230134E9001EBC21 /* icon_tool_animals_night.png */; };
+		3C491ED1230134E9001EBC21 /* icon_tool_abacus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ECA230134E9001EBC21 /* icon_tool_abacus.png */; };
+		3C491ED8230134FF001EBC21 /* icon_tool_ernie.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED2230134FE001EBC21 /* icon_tool_ernie.png */; };
+		3C491ED9230134FF001EBC21 /* icon_tool_ernie_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED3230134FE001EBC21 /* icon_tool_ernie_night.png */; };
+		3C491EDA230134FF001EBC21 /* icon_tool_calendar_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED4230134FE001EBC21 /* icon_tool_calendar_night.png */; };
+		3C491EDB230134FF001EBC21 /* icon_tool_lover_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED5230134FE001EBC21 /* icon_tool_lover_night.png */; };
+		3C491EDC230134FF001EBC21 /* icon_tool_lover.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED6230134FE001EBC21 /* icon_tool_lover.png */; };
+		3C491EDD230134FF001EBC21 /* icon_tool_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491ED7230134FF001EBC21 /* icon_tool_calendar.png */; };
+		3C491EDF2301351C001EBC21 /* icon_tool_tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EDE2301351B001EBC21 /* icon_tool_tips.png */; };
+		3C491EE22301356B001EBC21 /* icon_tool_rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EE02301356B001EBC21 /* icon_tool_rock.png */; };
+		3C491EE32301356B001EBC21 /* icon_tool_rock_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EE12301356B001EBC21 /* icon_tool_rock_night.png */; };
+		3C491EE623013B27001EBC21 /* TBToolBoxItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C491EE523013B27001EBC21 /* TBToolBoxItemModel.m */; };
+		3C491EE923014076001EBC21 /* icon_tool_spinning_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EE723014076001EBC21 /* icon_tool_spinning_night.png */; };
+		3C491EEA23014076001EBC21 /* icon_tool_spinning.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EE823014076001EBC21 /* icon_tool_spinning.png */; };
+		3C491EEC2301407D001EBC21 /* icon_tool_tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C491EEB2301407D001EBC21 /* icon_tool_tips.png */; };
+		3C491EEF23016186001EBC21 /* TBPickNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C491EEE23016186001EBC21 /* TBPickNumberViewController.m */; };
+		3C491EF2230161D2001EBC21 /* TBPickNumberViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C491EF1230161D2001EBC21 /* TBPickNumberViewModel.m */; };
+		3C491EF523016401001EBC21 /* TBDisplayCodesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C491EF423016401001EBC21 /* TBDisplayCodesView.m */; };
+		3C491EF823025F84001EBC21 /* TBPickNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C491EF723025F84001EBC21 /* TBPickNumberButton.m */; };
 		3CBCE8B722D4799600BABD80 /* TBShakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B622D4799600BABD80 /* TBShakeView.m */; };
 		3CBCE8BA22D85D2100BABD80 /* TBKitBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8B922D85D2100BABD80 /* TBKitBagViewController.m */; };
 		3CBCE8BD22D85D4000BABD80 /* TBKitBagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCE8BC22D85D4000BABD80 /* TBKitBagViewModel.m */; };
@@ -377,6 +401,35 @@
 		3C3779C222FBD05F00F92086 /* btn_common_disabled.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_common_disabled.9.png; sourceTree = "<group>"; };
 		3C3779C322FBD05F00F92086 /* btn_common_normal.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_common_normal.9.png; sourceTree = "<group>"; };
 		3C3779C622FBFB1C00F92086 /* wheel_backgroud.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wheel_backgroud.jpg; sourceTree = "<group>"; };
+		3C491EC4230134E8001EBC21 /* icon_tool_animals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_animals.png; sourceTree = "<group>"; };
+		3C491EC5230134E8001EBC21 /* icon_tool_beauty_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_beauty_night.png; sourceTree = "<group>"; };
+		3C491EC6230134E8001EBC21 /* icon_tips_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tips_night.png; sourceTree = "<group>"; };
+		3C491EC7230134E8001EBC21 /* icon_tool_beauty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_beauty.png; sourceTree = "<group>"; };
+		3C491EC8230134E8001EBC21 /* icon_tool_abacus_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_abacus_night.png; sourceTree = "<group>"; };
+		3C491EC9230134E9001EBC21 /* icon_tool_animals_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_animals_night.png; sourceTree = "<group>"; };
+		3C491ECA230134E9001EBC21 /* icon_tool_abacus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_abacus.png; sourceTree = "<group>"; };
+		3C491ED2230134FE001EBC21 /* icon_tool_ernie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_ernie.png; sourceTree = "<group>"; };
+		3C491ED3230134FE001EBC21 /* icon_tool_ernie_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_ernie_night.png; sourceTree = "<group>"; };
+		3C491ED4230134FE001EBC21 /* icon_tool_calendar_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tool_calendar_night.png; path = "../../../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d4fab1141425f9b61d6d1780444c50f6/Message/MessageTemp/8b3ada0e74b59ad77c57ead6077269b8/File/六合宝典/res/drawable-xhdpi-v4/icon_tool_calendar_night.png"; sourceTree = "<group>"; };
+		3C491ED5230134FE001EBC21 /* icon_tool_lover_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_lover_night.png; sourceTree = "<group>"; };
+		3C491ED6230134FE001EBC21 /* icon_tool_lover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_lover.png; sourceTree = "<group>"; };
+		3C491ED7230134FF001EBC21 /* icon_tool_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tool_calendar.png; path = "../../../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d4fab1141425f9b61d6d1780444c50f6/Message/MessageTemp/8b3ada0e74b59ad77c57ead6077269b8/File/六合宝典/res/drawable-xhdpi-v4/icon_tool_calendar.png"; sourceTree = "<group>"; };
+		3C491EDE2301351B001EBC21 /* icon_tool_tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_tips.png; sourceTree = "<group>"; };
+		3C491EE02301356B001EBC21 /* icon_tool_rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_rock.png; sourceTree = "<group>"; };
+		3C491EE12301356B001EBC21 /* icon_tool_rock_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_rock_night.png; sourceTree = "<group>"; };
+		3C491EE423013B27001EBC21 /* TBToolBoxItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBToolBoxItemModel.h; sourceTree = "<group>"; };
+		3C491EE523013B27001EBC21 /* TBToolBoxItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBToolBoxItemModel.m; sourceTree = "<group>"; };
+		3C491EE723014076001EBC21 /* icon_tool_spinning_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_spinning_night.png; sourceTree = "<group>"; };
+		3C491EE823014076001EBC21 /* icon_tool_spinning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tool_spinning.png; sourceTree = "<group>"; };
+		3C491EEB2301407D001EBC21 /* icon_tool_tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tool_tips.png; path = "../../../../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d4fab1141425f9b61d6d1780444c50f6/Message/MessageTemp/8b3ada0e74b59ad77c57ead6077269b8/File/六合宝典/res/drawable-xhdpi-v4/icon_tool_tips.png"; sourceTree = "<group>"; };
+		3C491EED23016186001EBC21 /* TBPickNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPickNumberViewController.h; sourceTree = "<group>"; };
+		3C491EEE23016186001EBC21 /* TBPickNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBPickNumberViewController.m; sourceTree = "<group>"; };
+		3C491EF0230161D2001EBC21 /* TBPickNumberViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPickNumberViewModel.h; sourceTree = "<group>"; };
+		3C491EF1230161D2001EBC21 /* TBPickNumberViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBPickNumberViewModel.m; sourceTree = "<group>"; };
+		3C491EF323016401001EBC21 /* TBDisplayCodesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBDisplayCodesView.h; sourceTree = "<group>"; };
+		3C491EF423016401001EBC21 /* TBDisplayCodesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBDisplayCodesView.m; sourceTree = "<group>"; };
+		3C491EF623025F84001EBC21 /* TBPickNumberButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBPickNumberButton.h; sourceTree = "<group>"; };
+		3C491EF723025F84001EBC21 /* TBPickNumberButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBPickNumberButton.m; sourceTree = "<group>"; };
 		3CBCE8B522D4799600BABD80 /* TBShakeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeView.h; sourceTree = "<group>"; };
 		3CBCE8B622D4799600BABD80 /* TBShakeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeView.m; sourceTree = "<group>"; };
 		3CBCE8B822D85D2100BABD80 /* TBKitBagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBKitBagViewController.h; sourceTree = "<group>"; };
@@ -504,6 +557,7 @@
 		3C3778B322EECC9100F92086 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3C491EC323013488001EBC21 /* boxIcons */,
 				3C3779BA22F94A0F00F92086 /* estimate */,
 				3C37798F22F569D100F92086 /* calend */,
 				3C37794E22F4247F00F92086 /* zodiac */,
@@ -717,6 +771,32 @@
 			name = estimate;
 			sourceTree = "<group>";
 		};
+		3C491EC323013488001EBC21 /* boxIcons */ = {
+			isa = PBXGroup;
+			children = (
+				3C491EEB2301407D001EBC21 /* icon_tool_tips.png */,
+				3C491EE723014076001EBC21 /* icon_tool_spinning_night.png */,
+				3C491EE823014076001EBC21 /* icon_tool_spinning.png */,
+				3C491EE12301356B001EBC21 /* icon_tool_rock_night.png */,
+				3C491EE02301356B001EBC21 /* icon_tool_rock.png */,
+				3C491EDE2301351B001EBC21 /* icon_tool_tips.png */,
+				3C491ED4230134FE001EBC21 /* icon_tool_calendar_night.png */,
+				3C491ED7230134FF001EBC21 /* icon_tool_calendar.png */,
+				3C491ED3230134FE001EBC21 /* icon_tool_ernie_night.png */,
+				3C491ED2230134FE001EBC21 /* icon_tool_ernie.png */,
+				3C491ED5230134FE001EBC21 /* icon_tool_lover_night.png */,
+				3C491ED6230134FE001EBC21 /* icon_tool_lover.png */,
+				3C491EC6230134E8001EBC21 /* icon_tips_night.png */,
+				3C491EC8230134E8001EBC21 /* icon_tool_abacus_night.png */,
+				3C491ECA230134E9001EBC21 /* icon_tool_abacus.png */,
+				3C491EC9230134E9001EBC21 /* icon_tool_animals_night.png */,
+				3C491EC4230134E8001EBC21 /* icon_tool_animals.png */,
+				3C491EC5230134E8001EBC21 /* icon_tool_beauty_night.png */,
+				3C491EC7230134E8001EBC21 /* icon_tool_beauty.png */,
+			);
+			name = boxIcons;
+			sourceTree = "<group>";
+		};
 		3CE273BF22C4A0B100E9C496 = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +884,8 @@
 		3CE2740022C4BAF300E9C496 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C491EF623025F84001EBC21 /* TBPickNumberButton.h */,
+				3C491EF723025F84001EBC21 /* TBPickNumberButton.m */,
 				3CE2741522CA039E00E9C496 /* TBToolBoxsViewModel.h */,
 				3CE2741622CA039E00E9C496 /* TBToolBoxsViewModel.m */,
 				3CE2740922C9D39000E9C496 /* TBLoverCodeViewModel.h */,
@@ -822,6 +904,8 @@
 				3CBCE8D422E5A9C800BABD80 /* TBLotteryDateViewModel.m */,
 				3C3778B022EAE23700F92086 /* TBEstimateViewModel.h */,
 				3C3778B122EAE23700F92086 /* TBEstimateViewModel.m */,
+				3C491EF0230161D2001EBC21 /* TBPickNumberViewModel.h */,
+				3C491EF1230161D2001EBC21 /* TBPickNumberViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -847,6 +931,8 @@
 				3CBCE8D122E5A9AA00BABD80 /* TBLotteryDateViewController.m */,
 				3C3778AD22EAE21E00F92086 /* TBEstimateViewController.h */,
 				3C3778AE22EAE21E00F92086 /* TBEstimateViewController.m */,
+				3C491EED23016186001EBC21 /* TBPickNumberViewController.h */,
+				3C491EEE23016186001EBC21 /* TBPickNumberViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -860,6 +946,8 @@
 				3C29A85E22D0897100590932 /* TBZodiacCardModel.m */,
 				3CBCE8DC22E6E86C00BABD80 /* TBDateModel.h */,
 				3CBCE8DD22E6E86C00BABD80 /* TBDateModel.m */,
+				3C491EE423013B27001EBC21 /* TBToolBoxItemModel.h */,
+				3C491EE523013B27001EBC21 /* TBToolBoxItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -894,6 +982,8 @@
 				3C3779AA22F7D24500F92086 /* 自定义选择器 */,
 				3C3779BD22F9525A00F92086 /* TBRandomPickerView.h */,
 				3C3779BE22F9525A00F92086 /* TBRandomPickerView.m */,
+				3C491EF323016401001EBC21 /* TBDisplayCodesView.h */,
+				3C491EF423016401001EBC21 /* TBDisplayCodesView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1038,6 +1128,8 @@
 				3C3779A022F56A5000F92086 /* icon_calendar_binding.png in Resources */,
 				3C37790122F16FFC00F92086 /* ico_card_horse.png in Resources */,
 				3C37797222F424FF00F92086 /* ico_dragon_press.png in Resources */,
+				3C491EDD230134FF001EBC21 /* icon_tool_calendar.png in Resources */,
+				3C491ED1230134E9001EBC21 /* icon_tool_abacus.png in Resources */,
 				3C37794922F2D45300F92086 /* icon_tool_lucky_yaohao.png in Resources */,
 				3C3778BD22F00DEB00F92086 /* btn_tool_lover_man_press@3x.png in Resources */,
 				3C3778FD22F16FFC00F92086 /* ico_card_pig.png in Resources */,
@@ -1050,6 +1142,7 @@
 				3C29A88322D0912A00590932 /* ico_card_2.png in Resources */,
 				3C37798222F4300400F92086 /* red_wave_press.png in Resources */,
 				3C37791222F18E5200F92086 /* icon_tool_shake_down.png in Resources */,
+				3C491ECD230134E9001EBC21 /* icon_tips_night.png in Resources */,
 				3C3778B722F00D6A00F92086 /* ball_red_tool_lover@3x.png in Resources */,
 				3C3778BF22F00DF100F92086 /* btn_tool_lover_man_nopress@3x.png in Resources */,
 				3C37797022F424FF00F92086 /* ico_horse_press.png in Resources */,
@@ -1066,22 +1159,30 @@
 				3C37798122F4300400F92086 /* red_wave.png in Resources */,
 				3C29A87B22D0912A00590932 /* ico_card_5.png in Resources */,
 				3C37796E22F424FF00F92086 /* ico_snake.png in Resources */,
+				3C491ED9230134FF001EBC21 /* icon_tool_ernie_night.png in Resources */,
 				3C3778DD22F0487200F92086 /* shake_match.mp3 in Resources */,
 				3C37793F22F2D3A100F92086 /* bg_tool_lucky_lottery1.jpg in Resources */,
 				3C37792022F2B2FB00F92086 /* icon_tips_close6.png in Resources */,
+				3C491ED0230134E9001EBC21 /* icon_tool_animals_night.png in Resources */,
 				3C37792A22F2B42C00F92086 /* btn_tool_tips_open_press@2x.png in Resources */,
+				3C491ECB230134E9001EBC21 /* icon_tool_animals.png in Resources */,
 				3C37799522F569E500F92086 /* bg_date_rope01.png in Resources */,
+				3C491EE923014076001EBC21 /* icon_tool_spinning_night.png in Resources */,
 				3C37794D22F2D9EE00F92086 /* icon_tool_lucky_jiahao.png in Resources */,
 				3C29A88122D0912A00590932 /* ico_card_cow.png in Resources */,
+				3C491ECF230134E9001EBC21 /* icon_tool_abacus_night.png in Resources */,
+				3C491EDB230134FF001EBC21 /* icon_tool_lover_night.png in Resources */,
 				3C37791322F18E5200F92086 /* icon_tool_shake_loading3.png in Resources */,
 				3C3778FA22F16FFC00F92086 /* ico_card_cow.png in Resources */,
 				3C3778D922F0482D00F92086 /* yao.wav in Resources */,
 				3C3778C322F00EAC00F92086 /* btn_tool_lover_woman_nopress@3x.png in Resources */,
 				3C37791122F18E5200F92086 /* icon_tool_shake_light.png in Resources */,
 				3C37793722F2D39600F92086 /* bg_tool_lucky_2.png in Resources */,
+				3C491ECE230134E9001EBC21 /* icon_tool_beauty.png in Resources */,
 				3C3778C122F00EA500F92086 /* btn_tool_lover_woman_press@3x.png in Resources */,
 				3C37794822F2D45300F92086 /* icon_tool_lucky_man_nomal.png in Resources */,
 				3C37792F22F2D36C00F92086 /* btn_tool_lucky_yaohao_press.png in Resources */,
+				3C491EE32301356B001EBC21 /* icon_tool_rock_night.png in Resources */,
 				3C37794722F2D45300F92086 /* icon_tool_lucky_man_turning.png in Resources */,
 				3C37794B22F2D45300F92086 /* icon_tool_lucky_truning.png in Resources */,
 				3C29A87922D0912A00590932 /* ico_card_tiger.png in Resources */,
@@ -1093,11 +1194,13 @@
 				3C37799F22F56A5000F92086 /* bg_calendar_top_right.9.png in Resources */,
 				3C29A87F22D0912A00590932 /* ico_card_horse.png in Resources */,
 				3C37791F22F2B2FB00F92086 /* icon_tips_close4.png in Resources */,
+				3C491ECC230134E9001EBC21 /* icon_tool_beauty_night.png in Resources */,
 				3C3778B522EECCFD00F92086 /* bg_history_top.9@3x.png in Resources */,
 				3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */,
 				3C3779C122FBD05600F92086 /* btn_common_pressed.9.png in Resources */,
 				3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */,
 				3C3778D122F0305200F92086 /* jb7.png in Resources */,
+				3C491EDA230134FF001EBC21 /* icon_tool_calendar_night.png in Resources */,
 				3C3779BC22F94AD500F92086 /* icon_tool_cal.jpg in Resources */,
 				3C37790422F16FFC00F92086 /* ico_card_snake.png in Resources */,
 				3C37796522F424FF00F92086 /* ico_tiger.png in Resources */,
@@ -1108,6 +1211,7 @@
 				3C37792222F2B2FB00F92086 /* icon_tips_close2.png in Resources */,
 				3C29A87D22D0912A00590932 /* ico_card_monkey.png in Resources */,
 				3C3778D422F0305200F92086 /* jb2.png in Resources */,
+				3C491EDF2301351C001EBC21 /* icon_tool_tips.png in Resources */,
 				3C37792622F2B3C800F92086 /* btn_tool_tips_history_press.@2x.png in Resources */,
 				3C37793A22F2D39600F92086 /* bg_tool_lucky_1.png in Resources */,
 				3C3778FE22F16FFC00F92086 /* ico_card_3.png in Resources */,
@@ -1132,8 +1236,10 @@
 				3C37798522F4307E00F92086 /* green_wave_press.png in Resources */,
 				3C37792922F2B42C00F92086 /* btn_tool_tips_open_nopress@2x.png in Resources */,
 				3C3778D522F0305200F92086 /* jb6.png in Resources */,
+				3C491EDC230134FF001EBC21 /* icon_tool_lover.png in Resources */,
 				3C3779A922F56C4900F92086 /* icon_right@2x.png in Resources */,
 				3C3778D322F0305200F92086 /* jb5.png in Resources */,
+				3C491ED8230134FF001EBC21 /* icon_tool_ernie.png in Resources */,
 				3C29A87C22D0912A00590932 /* ico_card_sheep.png in Resources */,
 				3C37797D22F4297900F92086 /* ico_chicken_press.png in Resources */,
 				3C3778FF22F16FFC00F92086 /* ico_card_sheep.png in Resources */,
@@ -1142,12 +1248,15 @@
 				3C37796A22F424FF00F92086 /* ico_cow_press.png in Resources */,
 				3C3778FC22F16FFC00F92086 /* ico_card_monkey.png in Resources */,
 				3C3778F522F16FFC00F92086 /* ico_card_tiger.png in Resources */,
+				3C491EEC2301407D001EBC21 /* icon_tool_tips.png in Resources */,
 				3C3778D622F0305200F92086 /* jb1.png in Resources */,
+				3C491EEA23014076001EBC21 /* icon_tool_spinning.png in Resources */,
 				3C37796B22F424FF00F92086 /* ico_cow.png in Resources */,
 				3C37797E22F4297900F92086 /* ico_chicken.png in Resources */,
 				3C3779C522FBD05F00F92086 /* btn_common_normal.9.png in Resources */,
 				3C37791D22F2B2FB00F92086 /* icon_tips_close5.png in Resources */,
 				3C37796122F424FF00F92086 /* ico_mouse_press.png in Resources */,
+				3C491EE22301356B001EBC21 /* icon_tool_rock.png in Resources */,
 				3C3778D222F0305200F92086 /* jb4.png in Resources */,
 				3C37798D22F5619100F92086 /* btn_start_press.9.png in Resources */,
 				3C37796F22F424FF00F92086 /* ico_dog_press.png in Resources */,
@@ -1236,6 +1345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C491EF2230161D2001EBC21 /* TBPickNumberViewModel.m in Sources */,
 				3CBCE8C922DEF56D00BABD80 /* TBTurntableViewController.m in Sources */,
 				3CBCE8D522E5A9C800BABD80 /* TBLotteryDateViewModel.m in Sources */,
 				3CE2741122C9EF3E00E9C496 /* TBToolBoxsViewController.m in Sources */,
@@ -1245,7 +1355,9 @@
 				3CBCE8D822E5AB6900BABD80 /* TBCalendarView.m in Sources */,
 				3C3779BF22F9525A00F92086 /* TBRandomPickerView.m in Sources */,
 				3C3778AF22EAE21E00F92086 /* TBEstimateViewController.m in Sources */,
+				3C491EE623013B27001EBC21 /* TBToolBoxItemModel.m in Sources */,
 				3CE273DB22C4A0B300E9C496 /* main.m in Sources */,
+				3C491EF523016401001EBC21 /* TBDisplayCodesView.m in Sources */,
 				3C3779B522F7D24500F92086 /* CLStaticTextCell.m in Sources */,
 				3C3779B422F7D24500F92086 /* SUTableViewInterceptor.m in Sources */,
 				3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */,
@@ -1264,6 +1376,7 @@
 				3C3778E222F1314500F92086 /* TBBallView.m in Sources */,
 				3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */,
 				3C3779B622F7D24500F92086 /* CLZoomPickerView.m in Sources */,
+				3C491EF823025F84001EBC21 /* TBPickNumberButton.m in Sources */,
 				3CE2740E22C9DCA400E9C496 /* TBLoverCodeCollectionViewCell.m in Sources */,
 				3CBCE8CC22DEF58C00BABD80 /* TBTurntableViewModel.m in Sources */,
 				3C29A85622CF416C00590932 /* TBZodiacCardViewController.m in Sources */,
@@ -1273,6 +1386,7 @@
 				3CE273CD22C4A0B100E9C496 /* AppDelegate.m in Sources */,
 				3CBCE8DB22E5B5D800BABD80 /* TBCalendarViewCell.m in Sources */,
 				3CE2742022CB32C000E9C496 /* TBBirthdaySelectButton.m in Sources */,
+				3C491EEF23016186001EBC21 /* TBPickNumberViewController.m in Sources */,
 				3CBCE8C622DC587800BABD80 /* TBLuckNumberView.m in Sources */,
 				3CBCE8D222E5A9AA00BABD80 /* TBLotteryDateViewController.m in Sources */,
 				3CE2741422C9F87400E9C496 /* TBBriefIntroductionView.m in Sources */,

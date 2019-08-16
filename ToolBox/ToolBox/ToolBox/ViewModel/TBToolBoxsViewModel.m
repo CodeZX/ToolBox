@@ -8,6 +8,7 @@
 
 #import "TBToolBoxsViewModel.h"
 #import "TBLoverCodeCollectionViewCell.h"
+#import "TBToolBoxsCollectionViewCell.h"
 @interface TBToolBoxsViewModel ()
 
 @property (nonatomic,strong) UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>  *target;
@@ -45,13 +46,14 @@ static NSString * const identifier = @"loverCode";
     layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3.0, [UIScreen mainScreen].bounds.size.width/3.0);
     CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:layout];
+    collectionView.backgroundColor = [UIColor lightGrayColor];
     if (self.target) {
         [self.target.view addSubview:collectionView];
         self.collextionView = collectionView;
         collectionView.delegate = self.target;
         collectionView.dataSource = self.target;
         
-        [collectionView registerClass:[TBLoverCodeCollectionViewCell class] forCellWithReuseIdentifier:identifier];
+        [collectionView registerClass:[TBToolBoxsCollectionViewCell class] forCellWithReuseIdentifier:identifier];
     }
     
 }

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TBToolBoxItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TBToolBoxsCollectionViewCell : UICollectionViewCell
+@property (nonatomic,strong) TBToolBoxItemModel *itemModel;
+
 + (TBToolBoxsCollectionViewCell *)cellWithCollectionView:(UICollectionView *)collectionView Identifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 @end
 
