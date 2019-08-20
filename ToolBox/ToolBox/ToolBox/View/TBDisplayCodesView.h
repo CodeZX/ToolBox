@@ -9,12 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @class TBPickNumberButton;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TBDisplayCodesView : UIView
 - (void)addPickNumberButton:(TBPickNumberButton *)btn;
 - (void)removePickNumberButton:(TBPickNumberButton *)btn;
-                             
+- (void)clearResult;
+- (NSArray *)getResults;
+@end
+
+
+@interface TBDisplayCodesViewCell : UICollectionViewCell
+
+@property (nonatomic,strong) NSString *title;
+
 @end
 
 NS_ASSUME_NONNULL_END
+

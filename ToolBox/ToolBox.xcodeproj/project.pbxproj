@@ -11,23 +11,6 @@
 		3C29A85922CF41A100590932 /* TBZodiacCardViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85822CF41A100590932 /* TBZodiacCardViewModel.m */; };
 		3C29A85C22CF511F00590932 /* TBZodiacCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */; };
 		3C29A85F22D0897100590932 /* TBZodiacCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A85E22D0897100590932 /* TBZodiacCardModel.m */; };
-		3C29A87322D0912A00590932 /* ico_card_dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86222D0912900590932 /* ico_card_dragon.png */; };
-		3C29A87422D0912A00590932 /* ico_card_chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86322D0912900590932 /* ico_card_chicken.png */; };
-		3C29A87522D0912A00590932 /* ico_card_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86422D0912900590932 /* ico_card_3.png */; };
-		3C29A87622D0912A00590932 /* ico_card_mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86522D0912900590932 /* ico_card_mouse.png */; };
-		3C29A87722D0912A00590932 /* ico_card_pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86622D0912900590932 /* ico_card_pig.png */; };
-		3C29A87822D0912A00590932 /* ico_card_rabbit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86722D0912900590932 /* ico_card_rabbit.png */; };
-		3C29A87922D0912A00590932 /* ico_card_tiger.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86822D0912900590932 /* ico_card_tiger.png */; };
-		3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86922D0912900590932 /* ico_card_1.png */; };
-		3C29A87B22D0912A00590932 /* ico_card_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86A22D0912900590932 /* ico_card_5.png */; };
-		3C29A87C22D0912A00590932 /* ico_card_sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86B22D0912900590932 /* ico_card_sheep.png */; };
-		3C29A87D22D0912A00590932 /* ico_card_monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86C22D0912900590932 /* ico_card_monkey.png */; };
-		3C29A87E22D0912A00590932 /* ico_card_snake.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86D22D0912900590932 /* ico_card_snake.png */; };
-		3C29A87F22D0912A00590932 /* ico_card_horse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86E22D0912900590932 /* ico_card_horse.png */; };
-		3C29A88022D0912A00590932 /* ico_card_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A86F22D0912900590932 /* ico_card_4.png */; };
-		3C29A88122D0912A00590932 /* ico_card_cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87022D0912900590932 /* ico_card_cow.png */; };
-		3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87122D0912900590932 /* ico_card_dog.png */; };
-		3C29A88322D0912A00590932 /* ico_card_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C29A87222D0912A00590932 /* ico_card_2.png */; };
 		3C29A88622D32C0300590932 /* TBShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88522D32C0300590932 /* TBShakeViewController.m */; };
 		3C29A88922D32C1F00590932 /* TBShakeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C29A88822D32C1F00590932 /* TBShakeViewModel.m */; };
 		3C3778AF22EAE21E00F92086 /* TBEstimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3778AE22EAE21E00F92086 /* TBEstimateViewController.m */; };
@@ -242,23 +225,6 @@
 		3C29A85B22CF511F00590932 /* TBZodiacCardCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardCollectionViewCell.m; sourceTree = "<group>"; };
 		3C29A85D22D0897100590932 /* TBZodiacCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZodiacCardModel.h; sourceTree = "<group>"; };
 		3C29A85E22D0897100590932 /* TBZodiacCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZodiacCardModel.m; sourceTree = "<group>"; };
-		3C29A86222D0912900590932 /* ico_card_dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_dragon.png; sourceTree = "<group>"; };
-		3C29A86322D0912900590932 /* ico_card_chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_chicken.png; sourceTree = "<group>"; };
-		3C29A86422D0912900590932 /* ico_card_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_3.png; sourceTree = "<group>"; };
-		3C29A86522D0912900590932 /* ico_card_mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_mouse.png; sourceTree = "<group>"; };
-		3C29A86622D0912900590932 /* ico_card_pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_pig.png; sourceTree = "<group>"; };
-		3C29A86722D0912900590932 /* ico_card_rabbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_rabbit.png; sourceTree = "<group>"; };
-		3C29A86822D0912900590932 /* ico_card_tiger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_tiger.png; sourceTree = "<group>"; };
-		3C29A86922D0912900590932 /* ico_card_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_1.png; sourceTree = "<group>"; };
-		3C29A86A22D0912900590932 /* ico_card_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_5.png; sourceTree = "<group>"; };
-		3C29A86B22D0912900590932 /* ico_card_sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_sheep.png; sourceTree = "<group>"; };
-		3C29A86C22D0912900590932 /* ico_card_monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_monkey.png; sourceTree = "<group>"; };
-		3C29A86D22D0912900590932 /* ico_card_snake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_snake.png; sourceTree = "<group>"; };
-		3C29A86E22D0912900590932 /* ico_card_horse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_horse.png; sourceTree = "<group>"; };
-		3C29A86F22D0912900590932 /* ico_card_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_4.png; sourceTree = "<group>"; };
-		3C29A87022D0912900590932 /* ico_card_cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_cow.png; sourceTree = "<group>"; };
-		3C29A87122D0912900590932 /* ico_card_dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_dog.png; sourceTree = "<group>"; };
-		3C29A87222D0912A00590932 /* ico_card_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_card_2.png; sourceTree = "<group>"; };
 		3C29A88422D32C0300590932 /* TBShakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeViewController.h; sourceTree = "<group>"; };
 		3C29A88522D32C0300590932 /* TBShakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBShakeViewController.m; sourceTree = "<group>"; };
 		3C29A88722D32C1F00590932 /* TBShakeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBShakeViewModel.h; sourceTree = "<group>"; };
@@ -533,23 +499,6 @@
 		3C29A86122D0911800590932 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3C29A86922D0912900590932 /* ico_card_1.png */,
-				3C29A87222D0912A00590932 /* ico_card_2.png */,
-				3C29A86422D0912900590932 /* ico_card_3.png */,
-				3C29A86F22D0912900590932 /* ico_card_4.png */,
-				3C29A86A22D0912900590932 /* ico_card_5.png */,
-				3C29A86322D0912900590932 /* ico_card_chicken.png */,
-				3C29A87022D0912900590932 /* ico_card_cow.png */,
-				3C29A87122D0912900590932 /* ico_card_dog.png */,
-				3C29A86222D0912900590932 /* ico_card_dragon.png */,
-				3C29A86E22D0912900590932 /* ico_card_horse.png */,
-				3C29A86C22D0912900590932 /* ico_card_monkey.png */,
-				3C29A86522D0912900590932 /* ico_card_mouse.png */,
-				3C29A86622D0912900590932 /* ico_card_pig.png */,
-				3C29A86722D0912900590932 /* ico_card_rabbit.png */,
-				3C29A86B22D0912900590932 /* ico_card_sheep.png */,
-				3C29A86D22D0912900590932 /* ico_card_snake.png */,
-				3C29A86822D0912900590932 /* ico_card_tiger.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1123,8 +1072,6 @@
 				3C37796722F424FF00F92086 /* ico_horse.png in Resources */,
 				3C3778F622F16FFC00F92086 /* ico_card_rabbit.png in Resources */,
 				3C37794122F2D3A100F92086 /* bg_tool_lucky_top.png in Resources */,
-				3C29A87322D0912A00590932 /* ico_card_dragon.png in Resources */,
-				3C29A87622D0912A00590932 /* ico_card_mouse.png in Resources */,
 				3C3779A022F56A5000F92086 /* icon_calendar_binding.png in Resources */,
 				3C37790122F16FFC00F92086 /* ico_card_horse.png in Resources */,
 				3C37797222F424FF00F92086 /* ico_dragon_press.png in Resources */,
@@ -1139,7 +1086,6 @@
 				3C3779C722FBFB1C00F92086 /* wheel_backgroud.jpg in Resources */,
 				3C37797A22F4294100F92086 /* ico_sheep.png in Resources */,
 				3C37790222F16FFC00F92086 /* ico_card_5.png in Resources */,
-				3C29A88322D0912A00590932 /* ico_card_2.png in Resources */,
 				3C37798222F4300400F92086 /* red_wave_press.png in Resources */,
 				3C37791222F18E5200F92086 /* icon_tool_shake_down.png in Resources */,
 				3C491ECD230134E9001EBC21 /* icon_tips_night.png in Resources */,
@@ -1148,16 +1094,12 @@
 				3C37797022F424FF00F92086 /* ico_horse_press.png in Resources */,
 				3C37794022F2D3A100F92086 /* bg_tool_lucky_lottery2.jpg in Resources */,
 				3C37796D22F424FF00F92086 /* ico_monkey.png in Resources */,
-				3C29A87522D0912A00590932 /* ico_card_3.png in Resources */,
 				3C37797622F428C700F92086 /* ico_pig.png in Resources */,
-				3C29A88022D0912A00590932 /* ico_card_4.png in Resources */,
 				3C3778B922F00D7500F92086 /* ball_green_tool_lover@3x.png in Resources */,
-				3C29A87822D0912A00590932 /* ico_card_rabbit.png in Resources */,
 				3C37797422F4262500F92086 /* ico_mouse.png in Resources */,
 				3C37790022F16FFC00F92086 /* ico_card_2.png in Resources */,
 				3C37791E22F2B2FB00F92086 /* icon_tips_close1.png in Resources */,
 				3C37798122F4300400F92086 /* red_wave.png in Resources */,
-				3C29A87B22D0912A00590932 /* ico_card_5.png in Resources */,
 				3C37796E22F424FF00F92086 /* ico_snake.png in Resources */,
 				3C491ED9230134FF001EBC21 /* icon_tool_ernie_night.png in Resources */,
 				3C3778DD22F0487200F92086 /* shake_match.mp3 in Resources */,
@@ -1169,7 +1111,6 @@
 				3C37799522F569E500F92086 /* bg_date_rope01.png in Resources */,
 				3C491EE923014076001EBC21 /* icon_tool_spinning_night.png in Resources */,
 				3C37794D22F2D9EE00F92086 /* icon_tool_lucky_jiahao.png in Resources */,
-				3C29A88122D0912A00590932 /* ico_card_cow.png in Resources */,
 				3C491ECF230134E9001EBC21 /* icon_tool_abacus_night.png in Resources */,
 				3C491EDB230134FF001EBC21 /* icon_tool_lover_night.png in Resources */,
 				3C37791322F18E5200F92086 /* icon_tool_shake_loading3.png in Resources */,
@@ -1185,20 +1126,15 @@
 				3C491EE32301356B001EBC21 /* icon_tool_rock_night.png in Resources */,
 				3C37794722F2D45300F92086 /* icon_tool_lucky_man_turning.png in Resources */,
 				3C37794B22F2D45300F92086 /* icon_tool_lucky_truning.png in Resources */,
-				3C29A87922D0912A00590932 /* ico_card_tiger.png in Resources */,
 				3C37792122F2B2FB00F92086 /* icon_tips_close3.png in Resources */,
 				3C3778F922F16FFC00F92086 /* ico_card_dragon.png in Resources */,
 				3C37799722F569E500F92086 /* bg_date.png in Resources */,
 				3CE273D522C4A0B300E9C496 /* Assets.xcassets in Resources */,
-				3C29A87E22D0912A00590932 /* ico_card_snake.png in Resources */,
 				3C37799F22F56A5000F92086 /* bg_calendar_top_right.9.png in Resources */,
-				3C29A87F22D0912A00590932 /* ico_card_horse.png in Resources */,
 				3C37791F22F2B2FB00F92086 /* icon_tips_close4.png in Resources */,
 				3C491ECC230134E9001EBC21 /* icon_tool_beauty_night.png in Resources */,
 				3C3778B522EECCFD00F92086 /* bg_history_top.9@3x.png in Resources */,
-				3C29A88222D0912A00590932 /* ico_card_dog.png in Resources */,
 				3C3779C122FBD05600F92086 /* btn_common_pressed.9.png in Resources */,
-				3C29A87A22D0912A00590932 /* ico_card_1.png in Resources */,
 				3C3778D122F0305200F92086 /* jb7.png in Resources */,
 				3C491EDA230134FF001EBC21 /* icon_tool_calendar_night.png in Resources */,
 				3C3779BC22F94AD500F92086 /* icon_tool_cal.jpg in Resources */,
@@ -1209,7 +1145,6 @@
 				3C3779A122F56A5000F92086 /* icon_tool_calendar_night.png in Resources */,
 				3C3779A422F56A5000F92086 /* bg_calendar_top_centre.9.png in Resources */,
 				3C37792222F2B2FB00F92086 /* icon_tips_close2.png in Resources */,
-				3C29A87D22D0912A00590932 /* ico_card_monkey.png in Resources */,
 				3C3778D422F0305200F92086 /* jb2.png in Resources */,
 				3C491EDF2301351C001EBC21 /* icon_tool_tips.png in Resources */,
 				3C37792622F2B3C800F92086 /* btn_tool_tips_history_press.@2x.png in Resources */,
@@ -1218,7 +1153,6 @@
 				3C3779A722F56C2700F92086 /* icon_left@2x.png in Resources */,
 				3C37793622F2D39600F92086 /* bg_tool_lucky_4.png in Resources */,
 				3C3778F822F16FFC00F92086 /* ico_card_1.png in Resources */,
-				3C29A87722D0912A00590932 /* ico_card_pig.png in Resources */,
 				3C37798E22F5619100F92086 /* btn_start.9.png in Resources */,
 				3C3779A222F56A5000F92086 /* bg_calendar_top_left.9.png in Resources */,
 				3C3779A522F56A5000F92086 /* bg_calendar_below.9.png in Resources */,
@@ -1228,7 +1162,6 @@
 				3C37796922F424FF00F92086 /* ico_pig_press.png in Resources */,
 				3C37798A22F430AD00F92086 /* blue_wave.png in Resources */,
 				3C3778D022F0305200F92086 /* jb3.png in Resources */,
-				3C29A87422D0912A00590932 /* ico_card_chicken.png in Resources */,
 				3C37799422F569E500F92086 /* icon_date.png in Resources */,
 				3C37792422F2B3C100F92086 /* btn_tool_tips_history_nopress@2x.png in Resources */,
 				3C37796222F424FF00F92086 /* ico_dragon.png in Resources */,
@@ -1240,7 +1173,6 @@
 				3C3779A922F56C4900F92086 /* icon_right@2x.png in Resources */,
 				3C3778D322F0305200F92086 /* jb5.png in Resources */,
 				3C491ED8230134FF001EBC21 /* icon_tool_ernie.png in Resources */,
-				3C29A87C22D0912A00590932 /* ico_card_sheep.png in Resources */,
 				3C37797D22F4297900F92086 /* ico_chicken_press.png in Resources */,
 				3C3778FF22F16FFC00F92086 /* ico_card_sheep.png in Resources */,
 				3C37792E22F2D36C00F92086 /* btn_tool_lucky_yaohao.png in Resources */,

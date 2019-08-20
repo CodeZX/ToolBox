@@ -87,6 +87,16 @@
 @property (nonatomic,weak) TBPickNumberButton *bigMantissaButton;
 @property (nonatomic,weak) TBPickNumberButton *smallMantissaButton;
 
+@property (nonatomic,weak) UIView *line1;
+@property (nonatomic,weak) UIView *line2;
+@property (nonatomic,weak) UIView *line3;
+@property (nonatomic,weak) UIView *line4;
+@property (nonatomic,weak) UIView *line5;
+@property (nonatomic,weak) UIView *line6;
+@property (nonatomic,weak) UIView *line7;
+@property (nonatomic,weak) UIView *line8;
+@property (nonatomic,weak) UIView *line9;
+
 
 
 @property (nonatomic,weak) TBPickNumberButton *zeroHeadButton;
@@ -94,6 +104,10 @@
 @property (nonatomic,weak) TBPickNumberButton *twoHeadButton;
 @property (nonatomic,weak) TBPickNumberButton *threeHeadButton;
 @property (nonatomic,weak) TBPickNumberButton *fourHeadButton;
+
+@property (nonatomic,weak) TBPickNumberButton *selectSingleOrDoubleButton;
+@property (nonatomic,weak) TBPickNumberButton *selectBigOrSmallButton;
+@property (nonatomic,weak) TBPickNumberButton *selectAnimalButton;
 
 
 
@@ -139,13 +153,15 @@
     [self.target.view addSubview:displayCodesView];
     self.displayCodesView = displayCodesView;
     [self.displayCodesView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.target.view);
-        make.height.equalTo(self.target.view).multipliedBy(0.3);
+        make.edges.equalTo(self.target.view).offset(UIEdgeInsetsMake(100, 5, 5, 5));
+        make.height.equalTo(self.target.view).multipliedBy(0.23);
     }];
     
     UIButton *replicationResultButton = [[UIButton alloc]init];
     [replicationResultButton setTitle:@"复制结果" forState:UIControlStateNormal];
     [replicationResultButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [replicationResultButton addTarget:self action:@selector(copyResultButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    replicationResultButton.titleLabel.font = [UIFont systemFontOfSize:13];
     replicationResultButton.layer.borderWidth = 1;
     replicationResultButton.layer.borderColor = [UIColor redColor].CGColor;
     replicationResultButton.layer.cornerRadius = 5;
@@ -156,13 +172,15 @@
     [self.replicationResultButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.displayCodesView.bottom).offset(10);
         make.centerX.equalTo(self.target.view);
-        make.height.equalTo(35);
+        make.height.equalTo(30);
     }];
 //    
 //
     UIButton *clearButton = [[UIButton alloc]init];
     [clearButton setTitle:@"清空" forState:UIControlStateNormal];
     [clearButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [clearButton addTarget:self action:@selector(clearButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    clearButton.titleLabel.font = [UIFont systemFontOfSize:13];
     clearButton.layer.borderWidth = 1;
     clearButton.layer.borderColor = [UIColor redColor].CGColor;
     clearButton.layer.cornerRadius = 5;
@@ -178,6 +196,8 @@
     UIButton *shareResultButton = [[UIButton alloc]init];
     [shareResultButton setTitle:@"分享结果" forState:UIControlStateNormal];
     [shareResultButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [shareResultButton addTarget:self action:@selector(shareResultButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    shareResultButton.titleLabel.font = [UIFont systemFontOfSize:13];
     shareResultButton.layer.borderWidth = 1;
     shareResultButton.layer.borderColor = [UIColor redColor].CGColor;
     shareResultButton.layer.cornerRadius = 5;
@@ -217,16 +237,46 @@
     // 头数
     [self setupHeadCountButton];
     
-    
-    
-    
 
+
+}
+
+- (void)copyResultButtonClick:(UIButton *)btn {
+    
+//    [self.displayCodesView getResults];
+}
+- (void)clearButtonClick:(UIButton *)btn {
+    
+    [self.target.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[TBPickNumberButton class]]) {
+            TBPickNumberButton *btn = (TBPickNumberButton *)obj;
+            btn.selected = NO;
+        }
+    }];
+    
+    [self.displayCodesView clearResult];
+    
+}
+
+- (void)shareResultButtonClick:(UIButton *)btn {
+    //    [self.displayCodesView getResults];
+    
 }
 
 - (void)setupSingleAndDoubleButton {
     
     
-    NSArray *singleNumbers = @[@"1",@"3",@"5",@"7",@"9",@"11",@"13",@"15",@"17",@"19",@"20",@"21",@"23",@"25",@"27",@"29",@"31",@"33",@"35",@"37",@"39",@"41",@"43",@"45",@"47",@"49"];
+    UIView *line1 = [[UIView alloc]init];
+    line1.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line1];
+    self.line1 = line1;
+    [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.clearButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
+    NSArray *singleNumbers = @[@"01",@"03",@"05",@"07",@"09",@"11",@"13",@"15",@"17",@"19",@"20",@"21",@"23",@"25",@"27",@"29",@"31",@"33",@"35",@"37",@"39",@"41",@"43",@"45",@"47",@"49"];
     TBPickNumberButton *singleButton = [[TBPickNumberButton alloc]initWithTitle:@"单" forNumbers:singleNumbers type:PickNumberButtonTypeSingleAndDouble];
     [singleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:singleButton];
@@ -234,13 +284,13 @@
     self.singleButton.backgroundColor = [UIColor redColor];
     [self.singleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.target.view).offset(self.BtnMargin);
-        make.top.equalTo(self.clearButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line1.bottom).offset(self.BtnSpace);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     
-    NSArray *doubleNumbers = @[@"2",@"4",@"6",@"8",@"10",@"12",@"14",@"16",@"18",@"20",@"22",@"24",@"26",@"28",@"30",@"32",@"34",@"36",@"38",@"40",@"42",@"44",@"46",@"48"];
+    NSArray *doubleNumbers = @[@"02",@"04",@"06",@"08",@"10",@"12",@"14",@"16",@"18",@"20",@"22",@"24",@"26",@"28",@"30",@"32",@"34",@"36",@"38",@"40",@"42",@"44",@"46",@"48"];
     TBPickNumberButton *doubleButton = [[TBPickNumberButton alloc]initWithTitle:@"双" forNumbers:doubleNumbers type:PickNumberButtonTypeSingleAndDouble];
     [doubleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:doubleButton];
@@ -256,21 +306,24 @@
 
 - (void)setupBigAndSmall {
     
+    
+  
+    
     NSArray *bigNumbers = @[@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49"];
-    TBPickNumberButton *bigButton = [[TBPickNumberButton alloc]initWithTitle:@"大" forNumbers:bigNumbers type:PickNumberButtonTypBigAndSmall];
+    TBPickNumberButton *bigButton = [[TBPickNumberButton alloc]initWithTitle:@"大" forNumbers:bigNumbers type:PickNumberButtonTypeBigAndSmall];
     [bigButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:bigButton];
     self.bigButton = bigButton;
     [self.bigButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.target.view.centerX).offset(self.BtnSpace);
-        make.top.equalTo(self.clearButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line1.bottom).offset(self.BtnSpace);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     
-    NSArray *smallNumbers = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24"];
-    TBPickNumberButton *smallButton = [[TBPickNumberButton alloc]initWithTitle:@"小" forNumbers:smallNumbers type:PickNumberButtonTypBigAndSmall];
+    NSArray *smallNumbers = @[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24"];
+    TBPickNumberButton *smallButton = [[TBPickNumberButton alloc]initWithTitle:@"小" forNumbers:smallNumbers type:PickNumberButtonTypeBigAndSmall];
     [smallButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:smallButton];
     self.smallButton = smallButton;
@@ -287,13 +340,23 @@
 - (void)setupBigSingleAndSmallSingle {
     
     
+    UIView *line2 = [[UIView alloc]init];
+    line2.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line2];
+    self.line2 = line2;
+    [self.line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.singleButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
     NSArray *bigSingleNumbers = @[@"25",@"27",@"29",@"31",@"33",@"35",@"37",@"39",@"41",@"43",@"45",@"47",@"49"];
     TBPickNumberButton *bigSingleButton = [[TBPickNumberButton alloc]initWithTitle:@"大单" forNumbers:bigSingleNumbers type:PickNumberButtonTypeBigSingleAndBigDouble];
     [bigSingleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:bigSingleButton];
     self.bigSingleButton = bigSingleButton;
     [self.bigSingleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.singleButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.self.line2.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.singleButton);
         make.size.equalTo(self.BtnSize);
         
@@ -314,7 +377,7 @@
     }];
     
 
-    NSArray *samallSingleNumbers = @[@"1",@"3",@"5",@"7",@"9",@"11",@"13",@"15",@"17",@"19",@"20",@"21",@"23"];
+    NSArray *samallSingleNumbers = @[@"01",@"03",@"05",@"07",@"09",@"11",@"13",@"15",@"17",@"19",@"20",@"21",@"23"];
     TBPickNumberButton *samallSingleButton = [[TBPickNumberButton alloc]initWithTitle:@"小单" forNumbers:samallSingleNumbers type:PickNumberButtonTypeBigSingleAndBigDouble];
     [samallSingleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:samallSingleButton];
@@ -327,7 +390,7 @@
     }];
 
 
-    NSArray *samallDoubleNumbers = @[@"2",@"4",@"6",@"8",@"10",@"12",@"14",@"16",@"18",@"20",@"22",@"24"];
+    NSArray *samallDoubleNumbers = @[@"02",@"04",@"06",@"08",@"10",@"12",@"14",@"16",@"18",@"20",@"22",@"24"];
     TBPickNumberButton *samallDoubleButton = [[TBPickNumberButton alloc]initWithTitle:@"小双" forNumbers:samallDoubleNumbers type:PickNumberButtonTypeBigSingleAndBigDouble];
     [samallDoubleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:samallDoubleButton];
@@ -342,13 +405,13 @@
 
 - (void)setupFiveElementsButton {
     
-    NSArray *goldNumbers = @[@"5",@"6",@"19",@"20",@"27",@"28",@"35",@"36",@"49"];
-    TBPickNumberButton *goldButton = [[TBPickNumberButton alloc]initWithTitle:@"金" forNumbers:goldNumbers type:PickNumberButtonTypFiveElements];
+    NSArray *goldNumbers = @[@"05",@"06",@"19",@"20",@"27",@"28",@"35",@"36",@"49"];
+    TBPickNumberButton *goldButton = [[TBPickNumberButton alloc]initWithTitle:@"金" forNumbers:goldNumbers type:PickNumberButtonTypeFiveElements];
     [goldButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:goldButton];
     self.goldButton = goldButton;
     [self.goldButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bigButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line2.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.bigButton);
         make.size.equalTo(self.BtnSize);
         
@@ -356,8 +419,8 @@
     
     
     
-    NSArray *timberNumbers = @[@"1",@"2",@"9",@"10",@"17",@"18",@"31",@"32",@"39",@"40",@"47",@"48"];
-    TBPickNumberButton *timberButton = [[TBPickNumberButton alloc]initWithTitle:@"木" forNumbers:timberNumbers type:PickNumberButtonTypFiveElements];
+    NSArray *timberNumbers = @[@"01",@"02",@"09",@"10",@"17",@"18",@"31",@"32",@"39",@"40",@"47",@"48"];
+    TBPickNumberButton *timberButton = [[TBPickNumberButton alloc]initWithTitle:@"木" forNumbers:timberNumbers type:PickNumberButtonTypeFiveElements];
     [timberButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:timberButton];
     self.timberButton = timberButton;
@@ -369,8 +432,8 @@
     }];
     
     
-    NSArray *waterNumbers = @[@"7",@"8",@"15",@"16",@"23",@"24",@"37",@"38",@"45",@"46"];
-    TBPickNumberButton *waterButton = [[TBPickNumberButton alloc]initWithTitle:@"水" forNumbers:waterNumbers type:PickNumberButtonTypFiveElements];
+    NSArray *waterNumbers = @[@"07",@"08",@"15",@"16",@"23",@"24",@"37",@"38",@"45",@"46"];
+    TBPickNumberButton *waterButton = [[TBPickNumberButton alloc]initWithTitle:@"水" forNumbers:waterNumbers type:PickNumberButtonTypeFiveElements];
     [waterButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:waterButton];
     self.waterButton = waterButton;
@@ -383,8 +446,8 @@
     }];
     
     
-    NSArray *fireNumbers = @[@"3",@"11",@"12",@"25",@"26",@"33",@"34",@"41",@"42"];
-    TBPickNumberButton *fireButton = [[TBPickNumberButton alloc]initWithTitle:@"火" forNumbers:fireNumbers type:PickNumberButtonTypFiveElements];
+    NSArray *fireNumbers = @[@"03",@"11",@"12",@"25",@"26",@"33",@"34",@"41",@"42"];
+    TBPickNumberButton *fireButton = [[TBPickNumberButton alloc]initWithTitle:@"火" forNumbers:fireNumbers type:PickNumberButtonTypeFiveElements];
     [fireButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:fireButton];
     self.fireButton = fireButton;
@@ -395,13 +458,13 @@
     }];
     
     NSArray *soilNumbers = @[@"13",@"14",@"21",@"22",@"29",@"30",@"43",@"44"];
-    TBPickNumberButton *soilButton = [[TBPickNumberButton alloc]initWithTitle:@"土" forNumbers:soilNumbers type:PickNumberButtonTypFiveElements];
+    TBPickNumberButton *soilButton = [[TBPickNumberButton alloc]initWithTitle:@"土" forNumbers:soilNumbers type:PickNumberButtonTypeFiveElements];
     [soilButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:soilButton];
     self.soilButton = soilButton;
     [self.soilButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.fireButton);
-        make.left.equalTo(self.fireButton.right).offset(self.BtnMargin);
+        make.left.equalTo(self.fireButton.right).offset(self.BtnSpace);
         make.size.equalTo(self.BtnSize);
         
     }];
@@ -410,13 +473,24 @@
 
 - (void)setupColorWaveButton  {
     
-    NSArray *redWaveNumbers = @[@"1",@"2",@"7",@"8",@"12",@"13",@"18",@"19",@"23",@"24",@"29",@"30",@"34",@"35",@"40",@"45",@"46"];
-    TBPickNumberButton *reaWaveButton = [[TBPickNumberButton alloc]initWithTitle:@"红波" forNumbers:redWaveNumbers type:PickNumberButtonTypFiveElements];
+    
+    UIView *line3 = [[UIView alloc]init];
+    line3.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line3];
+    self.line3 = line3;
+    [self.line3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.samallDoubleButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
+    NSArray *redWaveNumbers = @[@"01",@"02",@"07",@"08",@"12",@"13",@"18",@"19",@"23",@"24",@"29",@"30",@"34",@"35",@"40",@"45",@"46"];
+    TBPickNumberButton *reaWaveButton = [[TBPickNumberButton alloc]initWithTitle:@"红波" forNumbers:redWaveNumbers type:PickNumberButtonTypeFiveElements];
     [reaWaveButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:reaWaveButton];
     self.reaWaveButton = reaWaveButton;
     [self.reaWaveButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.samallDoubleButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line3.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.samallDoubleButton);
         make.size.equalTo(self.BtnSize);
         
@@ -435,7 +509,7 @@
     }];
     
     
-    NSArray *greenWaveNumbers = @[@"5",@"6",@"11",@"16",@"17",@"21",@"22",@"27",@"28",@"32",@"33",@"38",@"39",@"43",@"44",@"49"];
+    NSArray *greenWaveNumbers = @[@"05",@"06",@"11",@"16",@"17",@"21",@"22",@"27",@"28",@"32",@"33",@"38",@"39",@"43",@"44",@"49"];
     TBPickNumberButton *greenWaveButton = [[TBPickNumberButton alloc]initWithTitle:@"绿波" forNumbers:greenWaveNumbers type:PickNumberButtonTypeColorWave];
     [greenWaveButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:greenWaveButton];
@@ -450,21 +524,23 @@
 
 - (void)setupAnimalButton {
     
-    NSArray *fowleNumbers = @[@"1",@"2",@"3",@"5",@"6",@"11",@"13",@"14",@"15",@"17",@"18",@"23",@"25",@"26",@"27",@"29",@"30",@"35",@"37",@"38",@"39",@"41",@"42",@"47",@"49"];
-    TBPickNumberButton *fowlButton = [[TBPickNumberButton alloc]initWithTitle:@"家禽" forNumbers:fowleNumbers type:PickNumberButtonTypAnimal];
+    
+    
+    NSArray *fowleNumbers = @[@"01",@"02",@"03",@"05",@"06",@"11",@"13",@"14",@"15",@"17",@"18",@"23",@"25",@"26",@"27",@"29",@"30",@"35",@"37",@"38",@"39",@"41",@"42",@"47",@"49"];
+    TBPickNumberButton *fowlButton = [[TBPickNumberButton alloc]initWithTitle:@"家禽" forNumbers:fowleNumbers type:PickNumberButtonTypeAnimal];
     [fowlButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:fowlButton];
     self.fowlButton = fowlButton;
     [self.fowlButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.fireButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line3.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.fireButton);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     
-    NSArray *beastNumbers = @[@"4",@"7",@"8",@"9",@"10",@"12",@"16",@"19",@"21",@"22",@"24",@"28",@"31",@"32",@"33",@"34",@"36",@"40",@"43",@"44",@"45",@"46",@"48"];
-    TBPickNumberButton *beastButton = [[TBPickNumberButton alloc]initWithTitle:@"野兽" forNumbers:beastNumbers type:PickNumberButtonTypAnimal];
+    NSArray *beastNumbers = @[@"04",@"07",@"08",@"09",@"10",@"12",@"16",@"19",@"21",@"22",@"24",@"28",@"31",@"32",@"33",@"34",@"36",@"40",@"43",@"44",@"45",@"46",@"48"];
+    TBPickNumberButton *beastButton = [[TBPickNumberButton alloc]initWithTitle:@"野兽" forNumbers:beastNumbers type:PickNumberButtonTypeAnimal];
     [beastButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:beastButton];
     self.beastButton = beastButton;
@@ -478,20 +554,45 @@
 
 - (void)setupColorSingleAndColorDouble {
     
-    NSArray *redSingleNumbers = @[@"1",@"7",@"13",@"19",@"23",@"29",@"35",@"45"];
+    
+    UIView *line4 = [[UIView alloc]init];
+    line4.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line4];
+    self.line4 = line4;
+    [self.line4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.reaWaveButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
+    
+    UIView *line5 = [[UIView alloc]init];
+    line5.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line5];
+    self.line5 = line5;
+    [self.line5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.line1.bottom);
+        make.bottom.equalTo(self.line4.top);
+        make.width.equalTo(0.5);
+        make.centerX.equalTo(self.target.view);
+        
+    }];
+    
+    
+    NSArray *redSingleNumbers = @[@"01",@"07",@"13",@"19",@"23",@"29",@"35",@"45"];
     TBPickNumberButton *redSingleButton = [[TBPickNumberButton alloc]initWithTitle:@"红单" forNumbers:redSingleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [redSingleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:redSingleButton];
     self.redSingleButton = redSingleButton;
     [self.redSingleButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.reaWaveButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line4.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.reaWaveButton);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     
-    NSArray *redDoubleNumbers = @[@"2",@"8",@"12",@"18",@"24",@"30",@"34",@"40",@"46"];
+    NSArray *redDoubleNumbers = @[@"02",@"08",@"12",@"18",@"24",@"30",@"34",@"40",@"46"];
     TBPickNumberButton *redDoubleButton = [[TBPickNumberButton alloc]initWithTitle:@"红双" forNumbers:redDoubleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [redDoubleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:redDoubleButton];
@@ -503,7 +604,7 @@
     }];
     
     
-    NSArray *blueSingleNumbers = @[@"3",@"9",@"15",@"25",@"31",@"37",@"41",@"47"];
+    NSArray *blueSingleNumbers = @[@"03",@"09",@"15",@"25",@"31",@"37",@"41",@"47"];
     TBPickNumberButton *blueSingleButton = [[TBPickNumberButton alloc]initWithTitle:@"蓝单" forNumbers:blueSingleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [blueSingleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:blueSingleButton];
@@ -516,7 +617,7 @@
     }];
     
     
-    NSArray *blueDoubleNumbers = @[@"4",@"10",@"14",@"20",@"26",@"36",@"42",@"48"];
+    NSArray *blueDoubleNumbers = @[@"04",@"10",@"14",@"20",@"26",@"36",@"42",@"48"];
     TBPickNumberButton *blueDoubleButton = [[TBPickNumberButton alloc]initWithTitle:@"蓝双" forNumbers:blueDoubleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [blueDoubleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:blueDoubleButton];
@@ -528,7 +629,7 @@
         
     }];
     
-    NSArray *greenSingleNumbers = @[@"5",@"11",@"13",@"19",@"23",@"29",@"35",@"45"];
+    NSArray *greenSingleNumbers = @[@"05",@"11",@"13",@"19",@"23",@"29",@"35",@"45"];
     TBPickNumberButton *greenSingleButton = [[TBPickNumberButton alloc]initWithTitle:@"绿单" forNumbers:greenSingleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [greenSingleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:greenSingleButton];
@@ -541,7 +642,7 @@
     }];
     
     
-    NSArray *greenDoubleNumbers = @[@"6",@"16",@"22",@"28",@"32",@"38",@"44"];
+    NSArray *greenDoubleNumbers = @[@"06",@"16",@"22",@"28",@"32",@"38",@"44"];
     TBPickNumberButton *greenDoubleButton = [[TBPickNumberButton alloc]initWithTitle:@"绿双" forNumbers:greenDoubleNumbers type:PickNumberButtonTypeColorWaveAndSingle];
     [greenDoubleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:greenDoubleButton];
@@ -560,13 +661,23 @@
 
 - (void)setupZodiacButton {
     
+    UIView *line6 = [[UIView alloc]init];
+    line6.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line6];
+    self.line6 = line6;
+    [self.line6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.redSingleButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
     NSArray *mouseNumbers = @[@"12",@"24",@"36",@"48"];
-    TBPickNumberButton *mouseButton = [[TBPickNumberButton alloc]initWithTitle:@"鼠" forNumbers:mouseNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *mouseButton = [[TBPickNumberButton alloc]initWithTitle:@"鼠" forNumbers:mouseNumbers type:PickNumberButtonTypeZodiac];
     [mouseButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:mouseButton];
     self.mouseButton = mouseButton;
     [self.mouseButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.redSingleButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line6.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.redSingleButton);
         make.size.equalTo(self.BtnSize);
         
@@ -574,7 +685,7 @@
     
     
     NSArray *cattleNumbers = @[@"11",@"23",@"35",@"47"];
-    TBPickNumberButton *cattleButton = [[TBPickNumberButton alloc]initWithTitle:@"牛" forNumbers:cattleNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *cattleButton = [[TBPickNumberButton alloc]initWithTitle:@"牛" forNumbers:cattleNumbers type:PickNumberButtonTypeZodiac];
     [cattleButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:cattleButton];
     self.cattleButton = cattleButton;
@@ -585,7 +696,7 @@
     }];
     
     NSArray *tigerNumbers = @[@"10",@"22",@"34",@"46"];
-    TBPickNumberButton *tigerButton = [[TBPickNumberButton alloc]initWithTitle:@"虎" forNumbers:tigerNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *tigerButton = [[TBPickNumberButton alloc]initWithTitle:@"虎" forNumbers:tigerNumbers type:PickNumberButtonTypeZodiac];
     [tigerButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:tigerButton];
     self.tigerButton = tigerButton;
@@ -597,8 +708,8 @@
     }];
     
     
-    NSArray *hareNumbers = @[@"9",@"21",@"33",@"45"];
-    TBPickNumberButton *hareButton = [[TBPickNumberButton alloc]initWithTitle:@"兔" forNumbers:hareNumbers type:PickNumberButtonTypeColorZodiac];
+    NSArray *hareNumbers = @[@"09",@"21",@"33",@"45"];
+    TBPickNumberButton *hareButton = [[TBPickNumberButton alloc]initWithTitle:@"兔" forNumbers:hareNumbers type:PickNumberButtonTypeZodiac];
     [hareButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:hareButton];
     self.hareButton = hareButton;
@@ -610,7 +721,7 @@
     }];
     
     NSArray *dragonNumbers = @[@"08",@"20",@"32",@"44"];
-    TBPickNumberButton *dragonButton = [[TBPickNumberButton alloc]initWithTitle:@"龙" forNumbers:dragonNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *dragonButton = [[TBPickNumberButton alloc]initWithTitle:@"龙" forNumbers:dragonNumbers type:PickNumberButtonTypeZodiac];
     [dragonButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:dragonButton];
     self.dragonButton = dragonButton;
@@ -622,8 +733,8 @@
     }];
     
     
-    NSArray *serpentNumbers = @[@"08",@"20",@"32",@"44"];
-    TBPickNumberButton *serpentButton = [[TBPickNumberButton alloc]initWithTitle:@"蛇" forNumbers:serpentNumbers type:PickNumberButtonTypeColorZodiac];
+    NSArray *serpentNumbers = @[@"07",@"19",@"31",@"43"];
+    TBPickNumberButton *serpentButton = [[TBPickNumberButton alloc]initWithTitle:@"蛇" forNumbers:serpentNumbers type:PickNumberButtonTypeZodiac];
     [serpentButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:serpentButton];
     self.serpentButton = serpentButton;
@@ -636,7 +747,7 @@
     
     
     NSArray *horseNumbers = @[@"06",@"18",@"30",@"42"];
-    TBPickNumberButton *horseButton = [[TBPickNumberButton alloc]initWithTitle:@"马" forNumbers:horseNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *horseButton = [[TBPickNumberButton alloc]initWithTitle:@"马" forNumbers:horseNumbers type:PickNumberButtonTypeZodiac];
     [horseButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:horseButton];
     self.horseButton = horseButton;
@@ -648,7 +759,7 @@
     
     
     NSArray *sheepNumbers = @[@"05",@"17",@"29",@"41"];
-    TBPickNumberButton *sheepButton = [[TBPickNumberButton alloc]initWithTitle:@"羊" forNumbers:sheepNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *sheepButton = [[TBPickNumberButton alloc]initWithTitle:@"羊" forNumbers:sheepNumbers type:PickNumberButtonTypeZodiac];
     [sheepButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:sheepButton];
     self.sheepButton = sheepButton;
@@ -660,7 +771,7 @@
     }];
 
     NSArray *monkeyNumbers = @[@"04",@"16",@"28",@"40"];
-    TBPickNumberButton *monkeyButton = [[TBPickNumberButton alloc]initWithTitle:@"猴" forNumbers:monkeyNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *monkeyButton = [[TBPickNumberButton alloc]initWithTitle:@"猴" forNumbers:monkeyNumbers type:PickNumberButtonTypeZodiac];
     [monkeyButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:monkeyButton];
     self.monkeyButton = monkeyButton;
@@ -673,7 +784,7 @@
 //
 
     NSArray *chickenNumbers = @[@"03",@"15",@"27",@"39"];
-    TBPickNumberButton *chickenButton = [[TBPickNumberButton alloc]initWithTitle:@"鸡" forNumbers:chickenNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *chickenButton = [[TBPickNumberButton alloc]initWithTitle:@"鸡" forNumbers:chickenNumbers type:PickNumberButtonTypeZodiac];
     [chickenButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:chickenButton];
     self.chickenButton = chickenButton;
@@ -685,7 +796,7 @@
     }];
 
     NSArray *dogNumbers = @[@"02",@"14",@"26",@"38"];
-    TBPickNumberButton *dogButton = [[TBPickNumberButton alloc]initWithTitle:@"狗" forNumbers:dogNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *dogButton = [[TBPickNumberButton alloc]initWithTitle:@"狗" forNumbers:dogNumbers type:PickNumberButtonTypeZodiac];
     [dogButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:dogButton];
     self.dogButton = dogButton;
@@ -698,7 +809,7 @@
 
 
     NSArray *pigNumbers = @[@"01",@"13",@"25",@"27",@"49"];
-    TBPickNumberButton *pigButton = [[TBPickNumberButton alloc]initWithTitle:@"猪" forNumbers:pigNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *pigButton = [[TBPickNumberButton alloc]initWithTitle:@"猪" forNumbers:pigNumbers type:PickNumberButtonTypeZodiac];
     [pigButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:pigButton];
     self.pigButton = pigButton;
@@ -714,20 +825,30 @@
 
 - (void)setupMantissaButton {
     
+    
+    UIView *line7 = [[UIView alloc]init];
+    line7.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line7];
+    self.line7 = line7;
+    [self.line7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.horseButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
     NSArray *zeroMantissaNumbers = @[@"10",@"20",@"30",@"40"];
-    TBPickNumberButton *zeroMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"0尾" forNumbers:zeroMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *zeroMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"0尾" forNumbers:zeroMantissaNumbers type:PickNumberButtonTypeZodiac];
     [zeroMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:zeroMantissaButton];
     self.zeroMantissaButton = zeroMantissaButton;
     [self.zeroMantissaButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.horseButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line7.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.horseButton);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     NSArray *oneMantissaNumbers = @[@"01",@"11",@"21",@"31",@"41"];
-    TBPickNumberButton *oneMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"1尾" forNumbers:oneMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *oneMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"1尾" forNumbers:oneMantissaNumbers type:PickNumberButtonTypeZodiac];
     [oneMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:oneMantissaButton];
     self.oneMantissaButton = oneMantissaButton;
@@ -740,7 +861,7 @@
     
     
     NSArray *twoMantissaNumbers = @[@"02",@"12",@"22",@"32",@"42"];
-    TBPickNumberButton *twoMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"2尾" forNumbers:twoMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *twoMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"2尾" forNumbers:twoMantissaNumbers type:PickNumberButtonTypeZodiac];
     [twoMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:twoMantissaButton];
     self.twoMantissaButton = twoMantissaButton;
@@ -752,7 +873,7 @@
     }];
     
     NSArray *threeMantissaNumbers = @[@"03",@"13",@"23",@"33",@"43"];
-    TBPickNumberButton *threeMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"3尾" forNumbers:threeMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *threeMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"3尾" forNumbers:threeMantissaNumbers type:PickNumberButtonTypeZodiac];
     [threeMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:threeMantissaButton];
     self.threeMantissaButton = threeMantissaButton;
@@ -764,7 +885,7 @@
     }];
     
     NSArray *fourMantissaNumbers = @[@"04",@"14",@"24",@"34",@"44"];
-    TBPickNumberButton *fourMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"4尾" forNumbers:fourMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *fourMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"4尾" forNumbers:fourMantissaNumbers type:PickNumberButtonTypeZodiac];
     [fourMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:fourMantissaButton];
     self.fourMantissaButton = fourMantissaButton;
@@ -776,7 +897,7 @@
     }];
     
     NSArray *fiveMantissaNumbers = @[@"05",@"15",@"25",@"35",@"45"];
-    TBPickNumberButton *fiveMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"5尾" forNumbers:fiveMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *fiveMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"5尾" forNumbers:fiveMantissaNumbers type:PickNumberButtonTypeZodiac];
     [fiveMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:fiveMantissaButton];
     self.fiveMantissaButton = fiveMantissaButton;
@@ -788,7 +909,7 @@
     }];
     
     NSArray *sixMantissaNumbers = @[@"06",@"16",@"26",@"36",@"46"];
-    TBPickNumberButton *sixMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"6尾" forNumbers:sixMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *sixMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"6尾" forNumbers:sixMantissaNumbers type:PickNumberButtonTypeZodiac];
     [sixMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:sixMantissaButton];
     self.sixMantissaButton = sixMantissaButton;
@@ -801,7 +922,7 @@
     
     
     NSArray *sevenMantissaNumbers = @[@"07",@"17",@"27",@"37",@"47"];
-    TBPickNumberButton *sevenMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"7尾" forNumbers:sevenMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *sevenMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"7尾" forNumbers:sevenMantissaNumbers type:PickNumberButtonTypeZodiac];
     [sevenMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:sevenMantissaButton];
     self.sevenMantissaButton = sevenMantissaButton;
@@ -813,7 +934,7 @@
     }];
     
     NSArray *eightMantissaNumbers = @[@"08",@"18",@"28",@"38",@"48"];
-    TBPickNumberButton *eightMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"8尾" forNumbers:eightMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *eightMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"8尾" forNumbers:eightMantissaNumbers type:PickNumberButtonTypeZodiac];
     [eightMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:eightMantissaButton];
     self.eightMantissaButton = eightMantissaButton;
@@ -825,7 +946,7 @@
     }];
     
     NSArray *nineMantissaNumbers = @[@"09",@"19",@"29",@"39",@"49"];
-    TBPickNumberButton *nineMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:nineMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *nineMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:nineMantissaNumbers type:PickNumberButtonTypeZodiac];
     [nineMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:nineMantissaButton];
     self.nineMantissaButton = nineMantissaButton;
@@ -838,7 +959,7 @@
     
     
     NSArray *bigMantissaNumbers = @[@"05",@"06",@"07",@"08",@"09",@"15",@"16",@"17",@"18",@"19",@"25",@"26",@"27",@"28",@"29",@"35",@"36",@"37",@"38",@"39",@"45",@"46",@"47",@"48",@"49"];
-    TBPickNumberButton *bigMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:bigMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *bigMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:bigMantissaNumbers type:PickNumberButtonTypeZodiac];
     [bigMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:bigMantissaButton];
     self.bigMantissaButton = bigMantissaButton;
@@ -850,7 +971,7 @@
     }];
     
     NSArray *smallMantissaNumbers = @[@"01",@"02",@"03",@"04",@"10",@"11",@"12",@"13",@"14",@"20",@"21",@"22",@"23",@"24",@"30",@"31",@"32",@"33",@"34",@"40",@"41",@"42",@"43",@"44",@"49",@"49",@"49",@"49",@"49",@"49",@"49",@"49",@"49",@"49"];
-    TBPickNumberButton *smallMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:smallMantissaNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *smallMantissaButton = [[TBPickNumberButton alloc]initWithTitle:@"9尾" forNumbers:smallMantissaNumbers type:PickNumberButtonTypeZodiac];
     [smallMantissaButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:smallMantissaButton];
     self.smallMantissaButton = smallMantissaButton;
@@ -866,20 +987,31 @@
 
 - (void)setupHeadCountButton {
     
+    
+    UIView *line8 = [[UIView alloc]init];
+    line8.backgroundColor = [UIColor lightGrayColor];
+    [self.target.view addSubview:line8];
+    self.line8 = line8;
+    [self.line8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.sixMantissaButton.bottom).offset(self.BtnSpace);
+        make.left.right.equalTo(self.target.view);
+        make.height.equalTo(0.5);
+    }];
+    
     NSArray *zeroHeadNumbers = @[@"01",@"02",@"03",@"04"];
-    TBPickNumberButton *zeroHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"0头" forNumbers:zeroHeadNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *zeroHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"0头" forNumbers:zeroHeadNumbers type:PickNumberButtonTypeZodiac];
     [zeroHeadButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:zeroHeadButton];
     self.zeroHeadButton = zeroHeadButton;
     [self.zeroHeadButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.sixMantissaButton.bottom).offset(self.BtnSpace);
+        make.top.equalTo(self.line8.bottom).offset(self.BtnSpace);
         make.left.equalTo(self.sixMantissaButton);
         make.size.equalTo(self.BtnSize);
         
     }];
     
     NSArray *oneHeadNumbers = @[@"11",@"12",@"13",@"14"];
-    TBPickNumberButton *oneHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"1头" forNumbers:oneHeadNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *oneHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"1头" forNumbers:oneHeadNumbers type:PickNumberButtonTypeZodiac];
     [oneHeadButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:oneHeadButton];
     self.oneHeadButton = oneHeadButton;
@@ -891,7 +1023,7 @@
     }];
     
     NSArray *twoHeadNumbers = @[@"20",@"21",@"22",@"23",@"24"];
-    TBPickNumberButton *twoHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"2头" forNumbers:twoHeadNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *twoHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"2头" forNumbers:twoHeadNumbers type:PickNumberButtonTypeZodiac];
     [twoHeadButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:twoHeadButton];
     self.twoHeadButton = twoHeadButton;
@@ -903,7 +1035,7 @@
     }];
     
     NSArray *threeHeadNumbers = @[@"30",@"31",@"32",@"33",@"34"];
-    TBPickNumberButton *threeHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"3头" forNumbers:threeHeadNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *threeHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"3头" forNumbers:threeHeadNumbers type:PickNumberButtonTypeZodiac];
     [threeHeadButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:threeHeadButton];
     self.threeHeadButton = threeHeadButton;
@@ -915,7 +1047,7 @@
     }];
     
     NSArray *fourHeadNumbers = @[@"40",@"41",@"42",@"43",@"44"];
-    TBPickNumberButton *fourHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"4头" forNumbers:fourHeadNumbers type:PickNumberButtonTypeColorZodiac];
+    TBPickNumberButton *fourHeadButton = [[TBPickNumberButton alloc]initWithTitle:@"4头" forNumbers:fourHeadNumbers type:PickNumberButtonTypeZodiac];
     [fourHeadButton addTarget:self action:@selector(pickNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.target.view addSubview:fourHeadButton];
     self.fourHeadButton = fourHeadButton;
@@ -929,12 +1061,41 @@
 }
 - (void)pickNumberButtonClick:(TBPickNumberButton *)btn {
     
+    if (btn.type == PickNumberButtonTypeSingleAndDouble) {
+        
+        if (![self.selectSingleOrDoubleButton isEqual:btn]) {
+            self.selectSingleOrDoubleButton.selected = NO;
+            self.selectSingleOrDoubleButton = btn;
+        }
+        
+    }
+    
+    if (btn.type == PickNumberButtonTypeBigAndSmall) {
+        
+        if (![self.selectBigOrSmallButton isEqual:btn]) {
+            self.selectBigOrSmallButton.selected = NO;
+            self.selectBigOrSmallButton = btn;
+        }
+       
+    }
+    
+    if (btn.type == PickNumberButtonTypeAnimal) {
+        
+        if (![self.selectAnimalButton isEqual:btn]) {
+            self.selectAnimalButton.selected = NO;
+            self.selectAnimalButton = btn;
+        }
+       
+    }
+    
+
     btn.selected = !btn.selected;
     if (btn.selected) {
         [self.displayCodesView addPickNumberButton:btn];
     } else {
         [self.displayCodesView removePickNumberButton:btn];
     }
+    
     
     
 }
